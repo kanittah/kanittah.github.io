@@ -167,7 +167,7 @@
 
   function renderHero() {
     var p = D.profile;
-    return '<section class="hero"><div class="wrap hero-in">' +
+    return '<section class="hero"><span class="slash" aria-hidden="true"></span><div class="wrap hero-in">' +
       '<div class="hero-text">' +
         (p.nickname ? '<p class="eyebrow">' + esc(t(p.nickname)) + '</p>' : '') +
         '<h1><span class="prefix">' + esc(t(p.prefix)) + '</span>' + esc(t(p.name)) + '</h1>' +
@@ -180,15 +180,16 @@
           '<button class="btn ghost" type="button" data-action="share">' + esc(L('btn_share')) + '</button>' +
         '</div>' +
       '</div>' +
-      '<figure class="hero-photo"><img src="' + esc(p.photo) + '" alt="' + esc(fullName()) + '" width="646" height="644"></figure>' +
+      '<figure class="hero-photo"><img src="' + esc(p.photo_cutout || p.photo) + '" alt="' + esc(fullName()) + '" width="646" height="644"></figure>' +
     '</div>' +
     '<div class="wrap"><dl class="stats">' + stats().map(function (s) {
       return '<div><dt>' + esc(L(s.k)) + '</dt><dd>' + s.n + '</dd></div>';
     }).join('') + '</dl></div></section>';
   }
 
+  var KANJI = ['', '一', '二', '三', '四', '五', '六', '七', '八', '九', '十'];
   function head(id, key, num) {
-    return '<header class="sec-head"><span class="sec-num">' + num + '</span><h2>' + esc(L(key)) + '</h2></header>';
+    return '<header class="sec-head"><span class="sec-num" aria-hidden="true"><b>' + (KANJI[+num] || '') + '</b><i>' + num + '</i></span><h2>' + esc(L(key)) + '</h2></header>';
   }
 
   function renderAbout() {
@@ -372,7 +373,7 @@
     var p = D.profile, c = D.contact || {};
     var feat = sortedPubs().filter(function (x) { return x.featured; }).slice(0, 5);
     var list = [];
-    list.push('<div class="s-title"><img src="' + esc(p.photo) + '" alt=""><div><p class="s-kicker">' + esc(L('deck_hi')) + '</p>' +
+    list.push('<div class="s-title"><img src="' + esc(p.photo_cutout || p.photo) + '" alt=""><div><p class="s-kicker">' + esc(L('deck_hi')) + '</p>' +
       '<h1>' + esc(t(p.nickname) || t(p.name)) + '</h1><h2>' + esc(withPrefix(p.prefix) + t(p.name)) + '</h2>' +
       '<p>' + esc(t(p.position)) + '<br>' + esc(t(p.faculty)) + ' ' + esc(t(p.university)) + '</p></div></div>');
     list.push('<h2 class="s-h">' + esc(L('deck_about')) + '</h2><div class="s-two"><div class="s-prose">' + paras(D.about) + '</div><ol class="s-edu">' +
@@ -426,7 +427,7 @@
   function makeQR(el, size) {
     if (!el) return;
     el.innerHTML = '';
-    if (window.QRCode) new QRCode(el, { text: siteUrl(), width: size, height: size, colorDark: '#1f2a1d', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
+    if (window.QRCode) new QRCode(el, { text: siteUrl(), width: size, height: size, colorDark: '#1b1030', colorLight: '#ffffff', correctLevel: QRCode.CorrectLevel.M });
   }
   function openShare() {
     var url = siteUrl();
@@ -477,7 +478,7 @@
     $('#langBtn').addEventListener('click', function () { setLang(lang === 'th' ? 'en' : 'th'); });
     $('#themeBtn').addEventListener('click', function () {
       var root = document.documentElement;
-      var cur = root.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      var cur = root.dataset.theme || 'dark';
       root.dataset.theme = cur === 'dark' ? 'light' : 'dark';
       try { localStorage.setItem('theme', root.dataset.theme); } catch (e) {}
     });

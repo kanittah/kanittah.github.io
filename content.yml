@@ -39,7 +39,8 @@ profile:
   university:
     th: มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)
     en: King Mongkut's University of Technology North Bangkok (KMUTNB)
-  photo: assets/img/kanitta.jpg
+  photo: assets/img/kanitta.jpg              # รูปพื้นขาว (ใช้ใน CV)
+  photo_cutout: assets/img/kanitta-cutout.webp  # รูปไดคัทพื้นใส (ใช้หน้าแรกและสไลด์)
   tagline:
     th: เทคโนโลยีการศึกษา · การนิเทศนักศึกษาครูช่างอุตสาหกรรม · นวัตกรรมการเรียนรู้ดิจิทัลเพื่ออาชีวศึกษา
     en: Educational technology · Supervision of TVET preservice teachers · Digital learning innovation for vocational education
