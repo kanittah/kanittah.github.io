@@ -83,10 +83,10 @@
     cv_links: { th: 'ฐานข้อมูลนักวิจัย', en: 'Researcher profiles' },
     cv_online: { th: 'ฉบับออนไลน์ล่าสุด', en: 'Latest online version' },
     deck_hi: { th: 'สวัสดีค่ะ', en: 'Hello!' },
-    deck_about: { th: 'รู้จักอาจารย์', en: 'About me' },
+    deck_about: { th: 'รู้จักครู', en: 'About me' },
     deck_research: { th: 'ผลงานวิจัยเด่น', en: 'Selected research' },
     deck_numbers: { th: 'ผลงานโดยสรุป', en: 'At a glance' },
-    deck_contact: { th: 'ติดต่ออาจารย์', en: 'Get in touch' },
+    deck_contact: { th: 'ติดต่อครู', en: 'Get in touch' },
     deck_hint: { th: '← → เปลี่ยนสไลด์ · F เต็มจอ · Esc ออก', en: '← → navigate · F fullscreen · Esc exit' },
     yaml_error: { th: 'ไฟล์ content.yml มีรูปแบบไม่ถูกต้อง — ตรวจย่อหน้า / เครื่องหมาย : ใกล้บรรทัดที่ระบุ', en: 'content.yml has a formatting error near the line below.' },
     load_error: { th: 'โหลด content.yml ไม่ได้ (ถ้าเปิดไฟล์จากเครื่องโดยตรง ให้เปิดผ่าน GitHub Pages หรือ local server)', en: 'Could not load content.yml.' }

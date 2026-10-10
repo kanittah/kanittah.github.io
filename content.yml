@@ -27,9 +27,10 @@ profile:
   name:
     th: ขนิษฐา หินอ่อน
     en: Kanitta Hinon
+  # นักศึกษาเรียกว่า "ครู" — ครูแทนตัวเองว่าครูกับนักศึกษาเสมอ
   nickname:
-    th: อาจารย์กิ๊ก
-    en: Ajarn Kik
+    th: ครูกิ๊ก
+    en: Kru Kik
   position:
     th: อาจารย์ประจำภาควิชาครุศาสตร์ไฟฟ้า
     en: Faculty Member, Department of Electrical Engineering Education
@@ -352,5 +353,5 @@ awards:
 # ข้อความในสไลด์สุดท้ายของโหมดนำเสนอ (แนะนำตัวกับนักศึกษา)
 present:
   closing:
-    th: ยินดีที่ได้รู้จักนักศึกษาทุกคน — มีคำถามติดต่อได้ทุกช่องทางค่ะ
+    th: ครูยินดีที่ได้รู้จักนักศึกษาทุกคนนะคะ — มีอะไรสงสัย ทักมาหาครูได้ทุกช่องทางเลยค่ะ
     en: Nice to meet you all — feel free to reach out anytime.

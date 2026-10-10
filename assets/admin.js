@@ -131,7 +131,7 @@
     candidate = [local, remote].filter(Boolean).sort(function (a, b) { return (b.updated || '').localeCompare(a.updated || ''); })[0] || null;
     mode = candidate ? 'unlock' : 'setup1';
     $('#lockTitle').textContent = candidate ? 'ใส่รหัส 8 หลัก' : 'ตั้งรหัส 8 หลัก';
-    $('#lockHint').textContent = candidate ? 'พื้นที่ส่วนตัวของอาจารย์' : 'ครั้งแรก — ตั้งรหัสตัวเลข 8 หลักสำหรับเข้าหน้านี้ (จำไว้ให้ดี ลืมแล้วกู้ข้อมูลไม่ได้)';
+    $('#lockHint').textContent = candidate ? 'พื้นที่ส่วนตัวของครูกิ๊ก' : 'ครั้งแรก — ตั้งรหัสตัวเลข 8 หลักสำหรับเข้าหน้านี้ (จำไว้ให้ดี ลืมแล้วกู้ข้อมูลไม่ได้)';
     setTimeout(function () { $('#pin').focus(); }, 50);
   }
   function paintPin() {
@@ -214,7 +214,7 @@
       ['📄', 'CV ภาษาไทย', base + '?lang=th#cv'],
       ['🎬', 'โหมดนำเสนอ (แนะนำตัวนักศึกษา)', base + '?lang=th#present']
     ];
-    var html = '<div class="adm-hello"><h1>สวัสดีค่ะ อาจารย์กิ๊ก</h1><p class="muted">พื้นที่ส่วนตัว — ข้อมูลในหน้านี้เข้ารหัสด้วยรหัส 8 หลักของอาจารย์</p></div>' +
+    var html = '<div class="adm-hello"><h1>สวัสดีค่ะ ครูกิ๊ก</h1><p class="muted">พื้นที่ส่วนตัวของครู — ข้อมูลในหน้านี้เข้ารหัสด้วยรหัส 8 หลักของครู</p></div>' +
       section('links', '01', '一', 'ลิงก์ด่วน · QUICK LINKS', null,
         '<div class="ql-grid">' + links.map(function (l) {
           return '<div class="ql"><span class="ql-ic">' + l[0] + '</span><div><strong>' + esc(l[1]) + '</strong><a href="' + esc(l[2]) + '" target="_blank" rel="noopener">' + esc(l[2]) + '</a></div>' +
