@@ -1,3 +1,6 @@
 .DS_Store
 *.pdf
-!files/*.pdf
+# ห้ามนำหนังสือ/เอกสารขึ้นเว็บ
+*.docx
+*.doc
+*.pptx

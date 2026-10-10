@@ -35,8 +35,7 @@
       ['code', 'รหัสวิชา', 'text'], ['name', 'ชื่อวิชา', BI], ['level', 'ระดับ (เช่น ปริญญาตรี)', BI]] },
     { id: 'materials', label: 'เอกสารประกอบการสอน', icon: '📘', kind: 'list', path: 'teaching.materials', blank: {},
       sum: function (i) { return ['', tv(i.title)]; }, fields: [
-      ['title', 'ชื่อเอกสาร', BI], ['desc', 'คำอธิบาย', BIA], ['cover', 'รูปปก', 'image'],
-      ['url', 'ไฟล์ PDF ให้นักศึกษาดาวน์โหลด (ไม่ใส่ก็ได้)', 'file']] },
+      ['title', 'ชื่อเอกสาร', BI], ['desc', 'คำอธิบาย', BIA], ['cover', 'รูปปก (แสดงเฉพาะภาพปก ไม่มีไฟล์ให้ดาวน์โหลด)', 'image']] },
     { id: 'publications', label: 'ผลงานตีพิมพ์ (กรอกเอง)', icon: '📄', kind: 'list', path: 'publications', newOnTop: true,
       blank: function () { return { year: new Date().getFullYear(), type: 'journal' }; },
       note: 'ผลงานใหม่ ๆ ระบบดึงจากฐานข้อมูลมาแสดงเองทุกวัน — กรอกที่นี่เฉพาะเมื่ออยากเพิ่มรายละเอียด เช่น ป้าย Scopus/TCI, รางวัล หรือให้เป็นผลงานเด่น',
@@ -177,6 +176,8 @@
     return blob.arrayBuffer();
   }
   async function upload(path, file, isImage) {
+    // นโยบาย: อัปโหลดได้เฉพาะรูปภาพ — ห้ามอัปโหลดหนังสือ/เอกสาร (PDF ฯลฯ) ขึ้นเว็บ
+    if (!isImage || !/^image\//.test(file.type)) { A.toast('อัปโหลดได้เฉพาะรูปภาพเท่านั้น'); return; }
     if (file.size > 40e6) { A.toast('ไฟล์ใหญ่เกิน 40MB'); return; }
     A.toast('กำลังอัปโหลด…');
     try {
