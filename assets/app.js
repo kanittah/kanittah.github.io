@@ -243,7 +243,7 @@
           '<button class="btn ghost" type="button" data-action="share">' + esc(L('btn_share')) + '</button>' +
         '</div>' +
       '</div>' +
-      '<figure class="hero-photo"><img src="' + esc(p.photo_cutout || p.photo) + '" alt="' + esc(fullName()) + '" width="646" height="644"></figure>' +
+      '<figure class="hero-photo"><span class="fx-ticks" aria-hidden="true"></span><span class="fx-ring" aria-hidden="true"></span><span class="fx-ring fx-r2" aria-hidden="true"></span><span class="fx-orbit" aria-hidden="true"></span><span class="fx-orbit fx-o2" aria-hidden="true"></span><img src="' + esc(p.photo_cutout || p.photo) + '" alt="' + esc(fullName()) + '" width="646" height="644"></figure>' +
     '</div></section>';
   }
 
@@ -721,6 +721,11 @@
     document.body.classList.toggle('mode-cv', cv);
     document.body.classList.toggle('mode-deck', deck);
     if (cv) window.scrollTo(0, 0);
+    // นับการเปิดหน้า CV / โหมดนำเสนอ แยกจากหน้าหลัก
+    if ((cv || deck) && route.seen && window.goatcounter && window.goatcounter.count) {
+      window.goatcounter.count({ path: location.pathname + '#' + h, title: cv ? 'CV' : 'Presentation' });
+    }
+    route.seen = true;
     if (deck) { deckIndex = 0; renderDeck(); }
     if (!deck && document.fullscreenElement) document.exitFullscreen().catch(function () {});
   }

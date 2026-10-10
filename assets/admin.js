@@ -248,7 +248,8 @@
         }).join('') + '</div>' +
         '<div class="ql-row"><a class="btn ghost" href="https://github.com/' + esc(repo()) + '/edit/main/content.yml" target="_blank" rel="noopener">✎ แก้ข้อมูลเว็บ (content.yml)</a>' +
         '<a class="btn ghost" href="https://github.com/' + esc(repo()) + '/actions/workflows/metrics.yml" target="_blank" rel="noopener">↻ อัปเดตแดชบอร์ดตอนนี้</a>' +
-        '<button class="btn ghost" type="button" data-act="qr">▦ QR Code เว็บไซต์</button></div><div id="qrBox" class="qr-box" hidden></div>') +
+        '<button class="btn ghost" type="button" data-act="qr">▦ QR Code เว็บไซต์</button>' +
+        '<a class="btn ghost" href="https://kanittah.goatcounter.com" target="_blank" rel="noopener">📈 สถิติผู้เข้าชม</a></div><div id="qrBox" class="qr-box" hidden></div>') +
       section('bm', '03', '三', 'เว็บโปรด · MY SYSTEMS', data.bookmarks.length,
         '<div class="bm-tools"><input class="adm-search" id="bmSearch" type="search" placeholder="ค้นหาเว็บโปรด…" value="' + esc(query) + '">' +
         '<button class="btn" type="button" data-act="addBm">+ เพิ่มเว็บโปรด</button></div>' +

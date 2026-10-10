@@ -764,3 +764,41 @@ body.mode-deck { overflow: hidden; }
 .ed-item, .ed-auto li { min-width: 0; }
 .ed-auto li > div { min-width: 0; overflow-wrap: anywhere; }
 .pin-ok { margin-top: 14px; min-width: 160px; justify-content: center; }
+
+/* ===== วงกลมหลังรูปโปรไฟล์: แสงเคลื่อนไหว ===== */
+.hero-photo::before { animation: sun-breathe 4.5s ease-in-out infinite; }
+@keyframes sun-breathe {
+  0%, 100% { box-shadow: 0 0 60px rgba(255, 46, 147, .55), 0 0 140px rgba(255, 46, 147, .25); filter: brightness(1); }
+  50% { box-shadow: 0 0 90px rgba(255, 46, 147, .8), 0 0 200px rgba(255, 46, 147, .38); filter: brightness(1.12); }
+}
+.fx-ring, .fx-ticks, .fx-orbit { position: absolute; border-radius: 50%; pointer-events: none; z-index: 0; }
+/* วงแหวนนีออนหมุนรอบดวงอาทิตย์ */
+.fx-ring {
+  inset: 3%;
+  background: conic-gradient(from 0deg, transparent 0 58%, color-mix(in srgb, var(--neon-cyan) 30%, transparent) 68%, var(--neon-cyan) 78%, #fff 80%, transparent 81% 100%);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 2px));
+  filter: drop-shadow(0 0 6px var(--neon-cyan));
+  animation: fx-spin 4s linear infinite;
+}
+.fx-r2 {
+  inset: 0;
+  background: conic-gradient(from 180deg, transparent 0 66%, color-mix(in srgb, var(--neon-pink) 30%, transparent) 76%, var(--neon-pink) 86%, #fff 87.5%, transparent 88.5% 100%);
+  filter: drop-shadow(0 0 6px var(--neon-pink));
+  animation-duration: 6.5s; animation-direction: reverse;
+}
+/* เส้นประวงนอก หมุนช้า ๆ */
+.fx-ticks { inset: -2.5%; border: 1px dashed color-mix(in srgb, var(--neon-cyan) 40%, transparent); animation: fx-spin 40s linear infinite reverse; }
+/* จุดแสงโคจร (ลอดหลังศีรษะ) */
+.fx-orbit { inset: 1.5%; animation: fx-spin 9s linear infinite; }
+.fx-orbit::after {
+  content: ''; position: absolute; top: -5px; left: 50%; width: 10px; height: 10px; margin-left: -5px; border-radius: 50%;
+  background: var(--neon-yellow); box-shadow: 0 0 10px var(--neon-yellow), 0 0 24px var(--neon-yellow), 0 0 40px rgba(242, 255, 58, .5);
+}
+.fx-o2 { inset: -2.5%; animation-duration: 14s; animation-direction: reverse; }
+.fx-o2::after { width: 7px; height: 7px; margin-left: -3.5px; top: -3.5px; background: var(--neon-cyan); box-shadow: 0 0 10px var(--neon-cyan), 0 0 22px var(--neon-cyan); }
+@keyframes fx-spin { to { transform: rotate(360deg); } }
+:root[data-theme="light"] .fx-ring, :root[data-theme="light"] .fx-orbit::after { filter: none; }
+@media (prefers-reduced-motion: reduce) {
+  .hero-photo::before, .fx-ring, .fx-ticks, .fx-orbit { animation: none; }
+}
