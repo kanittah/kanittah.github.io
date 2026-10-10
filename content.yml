@@ -13,7 +13,7 @@
 
 site:
   # ใส่ลิงก์จริงของเว็บหลังเปิด GitHub Pages แล้ว (ใช้ทำ QR code และปุ่มแชร์)
-  url: "https://kanitt.github.io/"
+  url: "https://kanittah.github.io/"
   default_lang: en          # en หรือ th  (ภาษาเริ่มต้นเมื่อเปิดเว็บ — ผู้อ่านกดปุ่ม TH เพื่อสลับได้)
   updated: "2026-10-10"     # วันที่อัปเดตข้อมูลล่าสุด (แสดงท้าย CV)
 

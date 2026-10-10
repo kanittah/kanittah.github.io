@@ -1,15 +1,15 @@
 # เว็บไซต์โปรไฟล์ ผศ.ดร.ขนิษฐา หินอ่อน
 
-🌐 **https://kanitt.github.io/**
+🌐 **https://kanittah.github.io/**
 
 | ลิงก์ | ใช้ทำอะไร |
 |---|---|
-| `https://kanitt.github.io/` | หน้าโปรไฟล์หลัก — **ภาษาอังกฤษเป็นค่าเริ่มต้น** (กด TH มุมขวาบนเพื่อสลับเป็นไทย) |
-| `https://kanitt.github.io/?lang=th` | เปิดเป็นภาษาไทยโดยตรง (ส่งให้หน่วยงานไทย) |
-| `https://kanitt.github.io/admin.html` | 🔒 หน้า Admin ส่วนตัว (รหัส 8 หลัก) |
-| `https://kanitt.github.io/#cv` | หน้า CV — กด **พิมพ์ / บันทึกเป็น PDF** ได้ทันที ส่งให้หน่วยงานที่ขอประวัติ |
-| `https://kanitt.github.io/#present` | โหมดนำเสนอ (สไลด์) สำหรับแนะนำตัวกับนักศึกษา |
-| `https://kanitt.github.io/?lang=en#cv` | CV ภาษาอังกฤษโดยตรง |
+| `https://kanittah.github.io/` | หน้าโปรไฟล์หลัก — **ภาษาอังกฤษเป็นค่าเริ่มต้น** (กด TH มุมขวาบนเพื่อสลับเป็นไทย) |
+| `https://kanittah.github.io/?lang=th` | เปิดเป็นภาษาไทยโดยตรง (ส่งให้หน่วยงานไทย) |
+| `https://kanittah.github.io/admin.html` | 🔒 หน้า Admin ส่วนตัว (รหัส 8 หลัก) |
+| `https://kanittah.github.io/#cv` | หน้า CV — กด **พิมพ์ / บันทึกเป็น PDF** ได้ทันที ส่งให้หน่วยงานที่ขอประวัติ |
+| `https://kanittah.github.io/#present` | โหมดนำเสนอ (สไลด์) สำหรับแนะนำตัวกับนักศึกษา |
+| `https://kanittah.github.io/?lang=en#cv` | CV ภาษาอังกฤษโดยตรง |
 
 ---
 
@@ -17,7 +17,7 @@
 
 ข้อมูลทั้งหมดอยู่ในไฟล์เดียว: **`content.yml`**
 
-1. เข้า https://github.com/kanitt/kanitt.github.io แล้วล็อกอิน
+1. เข้า https://github.com/kanittah/kanittah.github.io แล้วล็อกอิน
 2. คลิกไฟล์ `content.yml` → กดรูป ✏️ (Edit) มุมขวาบน
 3. แก้ข้อความ / เพิ่มรายการ
 4. กดปุ่มสีเขียว **Commit changes…** → **Commit changes**

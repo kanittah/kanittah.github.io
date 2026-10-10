@@ -68,7 +68,7 @@
       var r = parts.length && !/\.html?$/.test(parts[0]) ? parts[0] : m[1] + '.github.io';
       return m[1] + '/' + r;
     }
-    return 'kanitt/kanitt.github.io';
+    return 'kanittah/kanittah.github.io';
   }
   function gh(path, opts) {
     opts = opts || {};

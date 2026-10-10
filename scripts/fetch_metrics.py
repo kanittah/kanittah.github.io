@@ -22,7 +22,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / "data" / "metrics.json"
-UA = {"User-Agent": "kanitt-profile-site/1.0 (+https://kanitt.github.io/)"}
+UA = {"User-Agent": "kanitt-profile-site/1.0 (+https://kanittah.github.io/)"}
 
 
 def read_ids():
