@@ -44,6 +44,42 @@ def get_json(url, headers=None):
         return json.load(r)
 
 
+THAI_MARKS = re.compile(r"[\u0e31\u0e34-\u0e3a\u0e47-\u0e4e]")
+CONF_HINT = re.compile(r"conference|proceedings|congress|symposium|workshop|lecture notes|advances in intelligent", re.I)
+
+
+def short_name(display):
+    """'Prachyanun Nilsook' -> 'Nilsook, P.'"""
+    parts = (display or "").split()
+    if len(parts) < 2:
+        return display or ""
+    return parts[-1] + ", " + "".join(p[0] + "." for p in parts[:-1])
+
+
+def author_list(names):
+    names = [short_name(n) for n in names]
+    if len(names) > 20:
+        names = names[:19] + ["…", names[-1]]
+    if len(names) <= 1:
+        return "".join(names)
+    return ", ".join(names[:-1]) + ", & " + names[-1]
+
+
+def kind_of(w, src):
+    t = (w.get("type") or "").lower()
+    if "conference" in t or src.get("type") == "conference" or CONF_HINT.search(src.get("display_name") or ""):
+        return "conference"
+    if t in ("article", "review", "letter"):
+        return "journal"
+    return "other"
+
+
+def broken_thai(title):
+    """ชื่อภาษาไทยจากฐานข้อมูลบางครั้งสระ/วรรณยุกต์หาย — ไม่นำไปแสดงในรายการผลงาน"""
+    thai = re.findall(r"[\u0e00-\u0e7f]", title or "")
+    return len(thai) > 15 and not THAI_MARKS.search(title)
+
+
 def openalex(ids):
     orcid = ids.get("orcid")
     author_id = ids.get("openalex")
@@ -58,20 +94,29 @@ def openalex(ids):
     while cursor:
         q = urllib.parse.urlencode({
             "filter": f"author.id:{aid}", "per-page": 100, "cursor": cursor,
-            "select": "id,publication_year,title,doi,cited_by_count,type,primary_location",
+            "select": "id,publication_year,title,doi,cited_by_count,type,primary_location,authorships",
         })
         page = get_json(f"https://api.openalex.org/works?{q}")
         for w in page["results"]:
-            src = ((w.get("primary_location") or {}).get("source") or {})
+            loc = w.get("primary_location") or {}
+            src = loc.get("source") or {}
             doi = (w.get("doi") or "").replace("https://doi.org/", "")
+            auths = w.get("authorships") or []
+            me = next((x for x in auths if (x.get("author") or {}).get("id", "").endswith(aid)), {})
+            role = "first" if me.get("author_position") == "first" else ("corresponding" if me.get("is_corresponding") else "co")
             works.append({
                 "year": w.get("publication_year"),
                 "title": w.get("title") or "",
                 "venue": src.get("display_name") or "",
                 "doi": doi,
+                "url": loc.get("landing_page_url") or "",
                 "cited": w.get("cited_by_count", 0),
                 "type": w.get("type") or "",
+                "kind": kind_of(w, src),
+                "authors": author_list([(x.get("author") or {}).get("display_name", "") for x in auths]),
+                "role": role,
                 "ieee": doi.lower().startswith("10.1109/"),
+                "broken_title": broken_thai(w.get("title")),
             })
         cursor = page["meta"].get("next_cursor")
         if not page["results"]:
@@ -146,7 +191,7 @@ def main():
     oa = safe(openalex, ids)
     ieee_works = [w for w in oa.get("works", []) if w["ieee"]]
     out = {
-        "updated": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
+        "updated": None,
         "sources": {
             "openalex": oa,
             "scopus": safe(scopus, ids),
@@ -156,6 +201,22 @@ def main():
                      "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Kanitta%20Hinon"},
         },
     }
+    # เขียนไฟล์ใหม่เฉพาะเมื่อข้อมูลเปลี่ยน (ไม่สร้าง commit ซ้ำทุกวัน)
+    # ถ้าแหล่งไหนดึงไม่สำเร็จรอบนี้ ใช้ข้อมูลเดิมของแหล่งนั้นไปก่อน
+    old = {}
+    if OUT.exists():
+        try:
+            old = json.loads(OUT.read_text(encoding="utf-8"))
+        except ValueError:
+            old = {}
+    for name, val in out["sources"].items():
+        prev = (old.get("sources") or {}).get(name)
+        if not val.get("ok") and prev and prev.get("ok"):
+            out["sources"][name] = prev
+    if old.get("sources") == out["sources"]:
+        print("no changes")
+        return
+    out["updated"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
     OUT.parent.mkdir(exist_ok=True)
     OUT.write_text(json.dumps(out, ensure_ascii=False, indent=1) + "\n", encoding="utf-8")
     print(f"wrote {OUT.relative_to(ROOT)}: openalex works={oa.get('works_count')} citations={oa.get('citations')} ieee={len(ieee_works)}")

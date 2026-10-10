@@ -27,7 +27,8 @@
     open_profile: { th: 'เปิดโปรไฟล์', en: 'Open profile' },
     all_works: { th: 'ผลงานทั้งหมดที่พบในฐานข้อมูล', en: 'All works found in databases' },
     cited_n: { th: 'อ้างอิง', en: 'cited' },
-    synced: { th: 'อัปเดตจากฐานข้อมูลเมื่อ', en: 'Synced from databases on' },
+    synced: { th: 'ข้อมูลอัปเดตล่าสุด', en: 'Data last updated' },
+    pubs_auto: { th: 'รายการนี้อัปเดตอัตโนมัติทุกวันจาก OpenAlex / ORCID', en: 'This list updates automatically every day from OpenAlex / ORCID' },
     from_content: { th: 'นับจากข้อมูลในเว็บ', en: 'from site content' },
     nav_about: { th: 'ประวัติ', en: 'About' },
     nav_expertise: { th: 'ความเชี่ยวชาญ', en: 'Expertise' },
@@ -145,18 +146,46 @@
     var repo = parts.length && !/\.html?$/.test(parts[0]) ? parts[0] : m[1] + '.github.io';
     return 'https://github.com/' + m[1] + '/' + repo + '/edit/main/content.yml';
   }
+  function latestDate() {
+    var a = (D.site && D.site.updated) || '', b = (M && M.updated) ? M.updated.slice(0, 10) : '';
+    return b > a ? b : a;
+  }
   function cite(p) {
     var s = (p.authors ? p.authors + ' ' : '') + '(' + p.year + '). ' + p.title + '.';
     if (p.venue) s += ' ' + p.venue + (p.volume ? ', ' + p.volume : '') + (p.pages ? ', ' + p.pages : '') + '.';
     if (p.doi) s += ' ' + doiUrl(p.doi);
     return s;
   }
+  // รวมผลงาน: ที่กรอกเองใน content.yml + ที่ดึงอัตโนมัติจากฐานข้อมูล (ไม่ซ้ำกัน)
+  function normT(x) { return String(x || '').toLowerCase().replace(/[^a-z0-9\u0e00-\u0e7f]/g, '').slice(0, 60); }
+  function niceTitle(x) {
+    x = String(x || '');
+    return /[A-Z]{4}/.test(x) && x === x.toUpperCase() ? x.charAt(0) + x.slice(1).toLowerCase() : x;
+  }
+  var pubCache = null;
+  function allPubs() {
+    if (pubCache) return pubCache;
+    var list = arr(D.publications).map(function (p) { return Object.assign({}, p); });
+    var byDoi = {}, byT = {};
+    list.forEach(function (p) { if (p.doi) byDoi[String(p.doi).toLowerCase()] = p; byT[normT(p.title)] = p; });
+    var hide = arr(D.hide_works).map(function (h) { return normT(h); });
+    arr(src('openalex').works).forEach(function (w) {
+      var m = (w.doi && byDoi[String(w.doi).toLowerCase()]) || byT[normT(w.title)];
+      if (m) { m.cited = w.cited; if (!m.doi && w.doi) m.doi = w.doi; if (!m.venue && w.venue) m.venue = w.venue; return; }
+      if (w.broken_title || !w.title) return;
+      if (hide.indexOf(normT(w.doi)) > -1 || hide.indexOf(normT(w.title)) > -1) return;
+      list.push({ year: w.year, type: w.kind || 'journal', title: niceTitle(w.title), authors: w.authors, venue: w.venue,
+        doi: w.doi, url: w.doi ? '' : w.url, role: w.role, cited: w.cited, ieee: w.ieee, auto: true });
+    });
+    pubCache = list;
+    return list;
+  }
   function sortedPubs() {
-    return arr(D.publications).slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+    return allPubs().slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0) || (b.featured ? 1 : 0) - (a.featured ? 1 : 0); });
   }
   function src(name) { return (M && M.sources && M.sources[name]) || {}; }
   function stats() {
-    var pubs = arr(D.publications), oa = src('openalex');
+    var pubs = allPubs(), oa = src('openalex');
     if (oa.ok) return [
       { n: oa.works_count, k: 'kpi_works' },
       { n: oa.citations, k: 'kpi_cites' },
@@ -266,6 +295,8 @@
       (p.venue ? '<p class="pub-venue"><em>' + esc(p.venue) + '</em>' + (p.volume ? ', ' + esc(p.volume) : '') + (p.pages ? ', ' + esc(p.pages) : '') + '</p>' : '') +
       '<div class="pub-meta">' + badge(p.index, /scopus/i.test(p.index || '') ? 'b-scopus' : 'b-tci') + badge(role, 'b-role') +
         (p.award ? badge('🏆 ' + p.award, 'b-award') : '') +
+        (p.ieee ? badge('IEEE', 'b-tci') : '') +
+        (p.cited ? badge(L('cited_n') + ' ' + p.cited, 'b-cite') : '') +
         (p.doi ? '<a class="link" href="' + esc(doiUrl(p.doi)) + '" target="_blank" rel="noopener">DOI</a>' : '') +
         (p.url ? '<a class="link" href="' + esc(p.url) + '" target="_blank" rel="noopener">PDF</a>' : '') +
         '<button class="link" type="button" data-cite="' + i + '">' + esc(L('copy_cite')) + '</button>' +
@@ -281,6 +312,7 @@
         return '<button type="button" role="tab" class="filter' + (pubFilter === ty[0] ? ' on' : '') + '" data-filter="' + ty[0] + '" aria-selected="' + (pubFilter === ty[0]) + '">' +
           esc(L(ty[1])) + ' <span>' + n + '</span></button>';
       }).join('') + '</div>' +
+      (src('openalex').ok ? '<p class="auto-note"><span class="live-dot" aria-hidden="true"></span>' + esc(L('pubs_auto')) + '</p>' : '') +
       '<ol class="pubs">' + pubs.map(pubItem).join('') + '</ol>' +
       linksRow() + '</div></section>';
   }
@@ -328,7 +360,7 @@
         (c.office ? '<div class="contact"><span>' + esc(L('office')) + '</span><strong>' + esc(t(c.office)) + '</strong></div>' : '') +
       '</div>' + linksRow() + '</div></section>' +
       '<footer class="footer"><div class="wrap footer-in"><span>© ' + new Date().getFullYear() + ' ' + esc(fullName()) + '</span>' +
-      '<span>' + esc(L('updated')) + ' ' + esc(D.site && D.site.updated || '') +
+      '<span>' + esc(L('updated')) + ' ' + esc(latestDate()) +
       (edit ? ' · <a href="' + esc(edit) + '" target="_blank" rel="noopener">' + esc(L('edit')) + '</a>' : '') + '</span></div></footer>';
   }
 
@@ -604,7 +636,7 @@
         (arr(D.links).length ? '<section><h2>' + esc(L('cv_links')) + '</h2><ul>' + arr(D.links).map(function (l) {
           return '<li>' + esc(l.label) + (l.note ? ' (' + esc(l.note) + ')' : '') + ': ' + esc(l.url) + '</li>';
         }).join('') + '</ul></section>' : '') +
-        '<footer class="cv-foot">' + esc(L('updated')) + ' ' + esc(D.site && D.site.updated || '') + ' · ' + esc(L('cv_online')) + ': ' + esc(siteUrl()) + '</footer>' +
+        '<footer class="cv-foot">' + esc(L('updated')) + ' ' + esc(latestDate()) + ' · ' + esc(L('cv_online')) + ': ' + esc(siteUrl()) + '</footer>' +
       '</article>';
   }
 

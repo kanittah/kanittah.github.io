@@ -158,7 +158,14 @@ teaching:
       url: ""
 
 # ---------------------------------------------------------------------
-# ผลงานตีพิมพ์
+# ผลงานตีพิมพ์ — ระบบดึงผลงานใหม่จาก OpenAlex/ORCID มาแสดงเองทุกวัน (ไม่ต้องกรอก)
+#   กรอกในนี้เฉพาะเมื่ออยากเพิ่มรายละเอียด เช่น ป้าย Scopus/TCI, รางวัล, featured
+#   (ถ้าชื่อเรื่องหรือ DOI ตรงกับที่ดึงมา ระบบจะรวมเป็นรายการเดียว)
+#
+#   ซ่อนผลงานที่ดึงมาแต่ไม่อยากแสดง: ใส่ DOI หรือชื่อเรื่องใน hide_works
+hide_works: []
+#   - 10.xxxx/xxxxx
+#
 #   type:   journal (บทความวารสาร) | conference (การประชุมวิชาการ)
 #   index:  เช่น "Scopus Q3", "TCI 1", "TCI 2"
 #   role:   first (ผู้แต่งหลัก) | corresponding (ผู้ประพันธ์บรรณกิจ) | co (ผู้ร่วมวิจัย)
@@ -239,7 +246,7 @@ publications:
     venue: International Conference, Indonesia
     award: Outstanding Paper Award
 
-  # ===== ผลงานที่ยังขาดชื่อวารสาร — เติมข้อมูลให้ครบแล้วลบ # หน้าบรรทัดออก =====
+  # ===== 4 เรื่องด้านล่างนี้ ระบบดึงมาแสดงอัตโนมัติแล้ว (ไม่ต้องลบ # ออก) =====
   # - year: 2025
   #   type: journal
   #   title: "Project-based learning with demonstration through the metaverse to promote media production skills and multimedia innovations"

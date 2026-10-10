@@ -1,10 +1,11 @@
-# อัปเดตข้อมูลแดชบอร์ด (data/metrics.json) ทุกวันจันทร์ 08:00 น. เวลาไทย
+# อัปเดตข้อมูลแดชบอร์ดและรายการผลงาน (data/metrics.json) ทุกวัน 08:00 น. เวลาไทย
+# commit เฉพาะวันที่ข้อมูลเปลี่ยน
 # กดรันเองได้ที่แท็บ Actions → Update academic metrics → Run workflow
 name: Update academic metrics
 
 on:
   schedule:
-    - cron: "0 1 * * 1"
+    - cron: "0 1 * * *"
   workflow_dispatch:
 
 permissions:
@@ -29,4 +30,8 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/metrics.json
           git diff --cached --quiet || git commit -m "อัปเดตข้อมูลแดชบอร์ดอัตโนมัติ"
+          # GitHub หยุดงานตั้งเวลาเมื่อ repo ไม่มีความเคลื่อนไหว 60 วัน — commit ว่างกันไว้ทุก ~50 วัน
+          if [ $(( $(date +%s) - $(git log -1 --format=%ct) )) -gt 4320000 ]; then
+            git commit --allow-empty -m "keepalive: ให้ระบบอัปเดตอัตโนมัติทำงานต่อ"
+          fi
           git push
