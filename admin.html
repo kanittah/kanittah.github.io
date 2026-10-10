@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Admin · Kanitta Hinon</title>
+  <meta name="theme-color" content="#07060d">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2307060d'/%3E%3Ctext x='32' y='46' font-size='40' text-anchor='middle' fill='%23ff2e93' font-family='serif' font-weight='800'%3E%E4%BE%8D%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;500;600;700&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@800&text=%E4%BE%8D%E7%AE%A1%E7%90%86%E4%B8%80%E4%BA%8C%E4%B8%89%E5%9B%9B&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t) document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+</head>
+<body class="admin">
+  <!-- หน้าส่วนตัวของ อ.กิ๊ก — ข้อมูลทั้งหมดถูกเข้ารหัสด้วยรหัส 8 หลัก (AES-256) ก่อนบันทึก -->
+  <header class="topbar">
+    <div class="wrap topbar-in">
+      <a class="brand" href="./"><span class="brand-badge" aria-hidden="true">侍</span><span class="brand-name">Admin</span></a>
+      <div class="tools" style="margin-left:auto">
+        <span id="syncState" class="sync-state" hidden></span>
+        <button class="chip" id="lockBtn" type="button" hidden>🔒 ล็อก</button>
+        <a class="chip" href="./">← เว็บไซต์</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- หน้าใส่รหัส -->
+    <section id="lock" class="lock" hidden>
+      <div class="lock-card">
+        <div class="lock-kanji" aria-hidden="true">管理</div>
+        <h1 id="lockTitle">ใส่รหัส 8 หลัก</h1>
+        <p id="lockHint" class="muted"></p>
+        <form id="pinForm" autocomplete="off">
+          <label class="pin" for="pin">
+            <input id="pin" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="8" autocomplete="off" aria-label="รหัส 8 หลัก">
+            <span class="pin-cells" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+          </label>
+          <p id="pinMsg" class="pin-msg" role="alert"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- หน้าแอดมินหลังปลดล็อก -->
+    <div id="panel" class="wrap admin-panel" hidden></div>
+  </main>
+
+  <dialog id="editDlg" class="share">
+    <form method="dialog" class="share-in edit-form" id="editForm">
+      <h3 id="editTitle"></h3>
+      <div id="editFields" class="edit-fields"></div>
+      <div class="share-actions">
+        <button class="btn" value="save">บันทึก</button>
+        <button class="btn ghost" value="cancel" formnovalidate>ยกเลิก</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="assets/admin.js"></script>
+</body>
+</html>

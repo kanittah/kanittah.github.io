@@ -14,7 +14,7 @@
 site:
   # ใส่ลิงก์จริงของเว็บหลังเปิด GitHub Pages แล้ว (ใช้ทำ QR code และปุ่มแชร์)
   url: "https://kanitt.github.io/"
-  default_lang: th          # th หรือ en  (ภาษาเริ่มต้นเมื่อเปิดเว็บ)
+  default_lang: en          # en หรือ th  (ภาษาเริ่มต้นเมื่อเปิดเว็บ — ผู้อ่านกดปุ่ม TH เพื่อสลับได้)
   updated: "2026-10-10"     # วันที่อัปเดตข้อมูลล่าสุด (แสดงท้าย CV)
 
 profile:
@@ -32,7 +32,7 @@ profile:
     en: Ajarn Kik
   position:
     th: อาจารย์ประจำภาควิชาครุศาสตร์ไฟฟ้า
-    en: Lecturer, Department of Electrical Engineering Education
+    en: Faculty Member, Department of Electrical Engineering Education
   faculty:
     th: คณะครุศาสตร์อุตสาหกรรม
     en: Faculty of Technical Education
@@ -55,14 +55,34 @@ contact:
     th: ภาควิชาครุศาสตร์ไฟฟ้า คณะครุศาสตร์อุตสาหกรรม มจพ. 1518 ถ.ประชาราษฎร์ 1 แขวงวงศ์สว่าง เขตบางซื่อ กรุงเทพฯ 10800
     en: Dept. of Electrical Engineering Education, FTE, KMUTNB, 1518 Pracharat 1 Rd., Bangsue, Bangkok 10800, Thailand
 
+# ---------------------------------------------------------------------
+# รหัสนักวิจัยในฐานข้อมูล — ใช้ดึงข้อมูลแดชบอร์ดอัตโนมัติทุกสัปดาห์
+# ---------------------------------------------------------------------
+ids:
+  orcid: 0000-0003-0837-0287
+  openalex: A5066140152
+  scopus: "57216501821"
+  google_scholar: ""        # รหัสหลัง user= ในลิงก์ Google Scholar เช่น AbCdEfGhIjk
+
+# Google Scholar ไม่มี API ทางการ — กรอกตัวเลขจากหน้าโปรไฟล์ Scholar เอง (เว้นว่างได้)
+manual_metrics:
+  google_scholar:
+    citations: ""
+    h_index: ""
+    i10_index: ""
+    as_of: ""               # วันที่ดูตัวเลข เช่น "2026-10-10"
+
 # ลิงก์ฐานข้อมูลนักวิจัย — เติม ORCID / Google Scholar ได้โดยลบ # หน้าบรรทัด
 links:
   - label: Scopus
     note: "Author ID 57216501821"
     url: https://www.scopus.com/authid/detail.uri?authorId=57216501821
-  # - label: ORCID
-  #   note: "0000-0000-0000-0000"
-  #   url: https://orcid.org/0000-0000-0000-0000
+  - label: ORCID
+    note: "0000-0003-0837-0287"
+    url: https://orcid.org/0000-0003-0837-0287
+  - label: OpenAlex
+    note: "ผลงานและการอ้างอิง"
+    url: https://openalex.org/authors/A5066140152
   # - label: Google Scholar
   #   url: https://scholar.google.com/citations?user=XXXXXXX
   # - label: ThaiJO / TCI

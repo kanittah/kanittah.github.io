@@ -4,7 +4,9 @@
 
 | ลิงก์ | ใช้ทำอะไร |
 |---|---|
-| `https://kanitt.github.io/` | หน้าโปรไฟล์หลัก (ไทย / English สลับได้มุมขวาบน) |
+| `https://kanitt.github.io/` | หน้าโปรไฟล์หลัก — **ภาษาอังกฤษเป็นค่าเริ่มต้น** (กด TH มุมขวาบนเพื่อสลับเป็นไทย) |
+| `https://kanitt.github.io/?lang=th` | เปิดเป็นภาษาไทยโดยตรง (ส่งให้หน่วยงานไทย) |
+| `https://kanitt.github.io/admin.html` | 🔒 หน้า Admin ส่วนตัว (รหัส 8 หลัก) |
 | `https://kanitt.github.io/#cv` | หน้า CV — กด **พิมพ์ / บันทึกเป็น PDF** ได้ทันที ส่งให้หน่วยงานที่ขอประวัติ |
 | `https://kanitt.github.io/#present` | โหมดนำเสนอ (สไลด์) สำหรับแนะนำตัวกับนักศึกษา |
 | `https://kanitt.github.io/?lang=en#cv` | CV ภาษาอังกฤษโดยตรง |
@@ -55,13 +57,37 @@ copy ก้อนนี้ไปวางใต้ `publications:` (ย่อห
 
 ---
 
+## 📊 แดชบอร์ดผลงานวิชาการ
+
+ข้อมูลอัปเดตอัตโนมัติ **ทุกวันจันทร์** โดย GitHub Actions (`.github/workflows/metrics.yml`) → เขียนลงไฟล์ `data/metrics.json`
+
+| แหล่งข้อมูล | วิธีเชื่อม |
+|---|---|
+| OpenAlex + ORCID | อัตโนมัติ ไม่ต้องตั้งค่า (ใช้ ORCID ใน `ids:` ของ content.yml) |
+| IEEE | นับอัตโนมัติจาก DOI ที่ขึ้นต้นด้วย 10.1109 |
+| Scopus | ขอ API key ฟรีที่ https://dev.elsevier.com → ใส่ใน repo: **Settings → Secrets and variables → Actions → New secret** ชื่อ `SCOPUS_API_KEY` |
+| Google Scholar | ไม่มี API ทางการ — กรอกตัวเลขเองใน `manual_metrics:` ของ content.yml (หรือใช้ secret `SERPAPI_KEY` ถ้ามี) |
+
+อยากอัปเดตทันที: แท็บ **Actions → Update academic metrics → Run workflow**
+
+## 🔒 หน้า Admin
+
+- เข้าครั้งแรกจะให้ **ตั้งรหัส 8 หลัก** — ข้อมูลทุกอย่างในหน้านี้ถูกเข้ารหัส (AES-256) ด้วยรหัสนี้ **ลืมรหัส = กู้ข้อมูลไม่ได้**
+- มี: ลิงก์ด่วน (CV/สไลด์/QR), เว็บโปรด, บันทึกส่วนตัว, สำรองข้อมูล
+- ใช้หลายเครื่อง: ตั้งค่า → ใส่ GitHub fine-grained token (สิทธิ์ Contents: Read and write เฉพาะ repo นี้) แล้วข้อมูลที่เข้ารหัสจะซิงก์เป็นไฟล์ `data/vault.json`
+- ⚠️ เว็บนี้เป็นสาธารณะ ไฟล์ที่เข้ารหัสจึงมีคนดาวน์โหลดได้ — **ห้ามเก็บรหัสผ่านหรือข้อมูลลับจริง** ไว้ในหน้า Admin
+
 ## 📁 โครงสร้างไฟล์
 
 ```
 content.yml        ← ข้อมูลทั้งหมด (แก้ไฟล์นี้ไฟล์เดียว)
 index.html         ← โครงหน้าเว็บ
 assets/style.css   ← สีและหน้าตา (เปลี่ยนสีหลักได้ที่ :root บนสุด)
-assets/app.js      ← ตัวสร้างหน้าเว็บ / CV / สไลด์ จาก content.yml
+assets/app.js      ← ตัวสร้างหน้าเว็บ / แดชบอร์ด / CV / สไลด์ จาก content.yml
+assets/admin.js    ← หน้า Admin (เข้ารหัสข้อมูล)
+admin.html         ← หน้า Admin
+data/metrics.json  ← ข้อมูลแดชบอร์ด (สร้างอัตโนมัติ)
+scripts/fetch_metrics.py ← สคริปต์ดึงข้อมูลแดชบอร์ด
 assets/img/        ← รูปภาพ
 ```
 

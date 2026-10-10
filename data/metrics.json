@@ -1,0 +1,332 @@
+{
+ "updated": "2026-10-10T16:17:12Z",
+ "sources": {
+  "openalex": {
+   "ok": true,
+   "url": "https://openalex.org/authors/A5066140152",
+   "works_count": 30,
+   "citations": 13,
+   "h_index": 2,
+   "i10_index": 0,
+   "by_year": [
+    {
+     "year": 2020,
+     "works": 3,
+     "citations": 4
+    },
+    {
+     "year": 2021,
+     "works": 2,
+     "citations": 0
+    },
+    {
+     "year": 2022,
+     "works": 1,
+     "citations": 0
+    },
+    {
+     "year": 2024,
+     "works": 8,
+     "citations": 8
+    },
+    {
+     "year": 2025,
+     "works": 10,
+     "citations": 1
+    },
+    {
+     "year": 2026,
+     "works": 6,
+     "citations": 0
+    }
+   ],
+   "works": [
+    {
+     "year": 2026,
+     "title": "Intelligent Game-Based Situated Learning in Immersive Virtual Environment to Enhance Digital Safety Skills",
+     "venue": "Higher Education Studies",
+     "doi": "10.5539/hes.v16n1p371",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2026,
+     "title": "Micro Self-Directed Learning through the Immersive Virtual Environments to Empower Computational and Creative Thinking",
+     "venue": "Higher Education Studies",
+     "doi": "10.5539/hes.v16n1p383",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2026,
+     "title": "Research-Based Learning Integration with Artificial Intelligence Research Assistants to Enhance Research Competencies",
+     "venue": "Higher Education Studies",
+     "doi": "10.5539/hes.v16n1p395",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2026,
+     "title": "A Study on the Use of Web Applications with Microservices Architecture to Enhance Sustainability in Electronic Document Management Systems within Educational Institutions",
+     "venue": "Asia Conference on Information Engineering (ACIE)",
+     "doi": "10.23919/aciecps00006.2026.00020",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2026,
+     "title": "Leveraging Intelligent Digital Storytelling for Personalized English Language Learning and Digital Storytelling Skills",
+     "venue": "International Journal on Advanced Science Engineering and Information Technology",
+     "doi": "10.18517/ijaseit.16.3.21578",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2026,
+     "title": "Implementation of Electronic Document Management on Web Application for Teacher Supervision in Educational Institutions",
+     "venue": "International Journal of Educational Communications and Technology",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "DEVELOPMENT OF A PRACTICAL TRAINING KIT FOR HOUSEHOLD ELECTRICAL AND LIGHTING CIRCUITS TO PROMOTE PROBLEM-SOLVING SKILLS IN ELECTRICAL AND ELECTRONICS WORK FOR VOCATIONAL CERTIFICATE STUDENTS",
+     "venue": "Journal of Industrial Education",
+     "doi": "10.55003/jie.24216",
+     "cited": 1,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "A Study of the Digital storytelling process for Technical and Vocational Preservice Teachers in the Activity of creative media innovations",
+     "venue": "Journal of Technical and Engineering Education",
+     "doi": "10.14416/j.ftee.2025.04.03",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "The Leaders of Digital Education Transformation",
+     "venue": "International Education Studies",
+     "doi": "10.5539/ies.v18n3p10",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "Competency-Based Blended Learning with the MIAP Process to Enhance Computer Skills",
+     "venue": "Lecture notes in educational technology",
+     "doi": "10.1007/978-981-96-8931-6_28",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "Artificial intelligence competencies of vocational teachers using for the design of learning activities",
+     "venue": "International Journal of Evaluation and Research in Education (IJERE)",
+     "doi": "10.11591/ijere.v14i4.32334",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "Project-based Learning with Demonstration through the Metaverse to Promote Media Production Skills and Multimedia Innovations",
+     "venue": "Higher Education Studies",
+     "doi": "10.5539/hes.v15n4p367",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "INTERACTIVE VIDEO MICRO-DEMONSTRATION LEARNING TO ENHANCE SPORT SKILLS",
+     "venue": "Journal of Industrial Education",
+     "doi": "10.55003/jie.24308",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "The Concept of Using Engineering Design Process via Digital Storytelling to Enhance the Teaching Experience for Pre-service Engineering Teachers",
+     "venue": "International Conference on Education and Multimedia Technology (ICEMT)",
+     "doi": "10.1145/3761843.3761924",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "Development of a Challenge based Learning Platform to Enhance Artificial Intelligence Competencies for Vocational Education Students",
+     "venue": "International Journal of Educational Communications and Technology",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2025,
+     "title": "การคดเชงออกแบบอยางชาญฉลาดดวยปญญาประดษฐรงสรรค เพอสงเสรมสมรรถนะการผลตสอดจทลสำหรบนกศกษาวชาชพคร",
+     "venue": "Dhammathas Academic Journal",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "Hybrid Project-Based Learning Model on Metaverse to Enhance Collaboration",
+     "venue": "International Education Studies",
+     "doi": "10.5539/ies.v17n6p65",
+     "cited": 5,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "Digital Technology Landscape for Vocational Education: Learning Loss Recovery",
+     "venue": "Journal of Technical Education and Training",
+     "doi": "10.30880/jtet.2024.16.01.005",
+     "cited": 2,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
+     "venue": "TEM Journal",
+     "doi": "10.18421/tem132-17",
+     "cited": 1,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "The Use of Digital Learning Tools by Pre-service Engineering Teacher",
+     "venue": "Lecture notes in educational technology",
+     "doi": "10.1007/978-981-97-3883-0_9",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "A Study and Application of Fire Alarm System in Computer and Telecommunication Control Room",
+     "venue": "International STEM Education Conference (iSTEM-Ed)",
+     "doi": "10.1109/istem-ed62750.2024.10663194",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": true
+    },
+    {
+     "year": 2024,
+     "title": "DEVELOPMENT OF INSTRUCTIONAL PACKAGE ON RLC CIRCUIT USING GUI FUNCTION OF MATLAB FOR VOCATIONAL CERTIFICATE",
+     "venue": "Journal of Industrial Education",
+     "doi": "10.55003/jie.23303",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2024,
+     "title": "Design Concept of Data Visualization in Developing a Supervision System for Pre-Service Engineering Teachers",
+     "venue": "International Congress on Advanced Applied Informatics (IIAI-AAI)",
+     "doi": "10.1109/iiai-aai-winter65925.2024.00030",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": true
+    },
+    {
+     "year": 2024,
+     "title": "การเรยนรเชงประสบการณผานจกรวาลนฤมตดวยการคดเชงออกแบบ เพอเสรมสรางสมรรถนะนวตกร",
+     "venue": "Journal of Roi Kaensarn Academi",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2022,
+     "title": "Guidelines for Using Instructional Materials of Vocational Education in Thailand during COVID-19",
+     "venue": "International Journal of Educational Communications and Technology",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2021,
+     "title": "The Development of 4D Model for Learning Management with Free Platform to Encourage The ICT Literacy Skills of Undergraduates",
+     "venue": "",
+     "doi": "10.1109/ri2c51727.2021.9559775",
+     "cited": 0,
+     "type": "conference-paper",
+     "ieee": true
+    },
+    {
+     "year": 2021,
+     "title": "Techniques for using instructional media to enhance the professional competence of vocational education",
+     "venue": "International Journal of Educational Communications and Technology",
+     "doi": "",
+     "cited": 0,
+     "type": "article",
+     "ieee": false
+    },
+    {
+     "year": 2020,
+     "title": "Development of Lesson Plans for Practicing Electrical Installation Professional Experience with Competency-Based Training System in Building Electricians",
+     "venue": "Advances in intelligent systems and computing",
+     "doi": "10.1007/978-3-030-40271-6_23",
+     "cited": 2,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2020,
+     "title": "Augmented Reality Imagineering Model for Learning Management with Cloud Learning Environment to Encourage the Innovative Skills of Undergraduates",
+     "venue": "Advances in intelligent systems and computing",
+     "doi": "10.1007/978-3-030-40271-6_33",
+     "cited": 1,
+     "type": "conference-paper",
+     "ieee": false
+    },
+    {
+     "year": 2020,
+     "title": "The Development of C&A Technique for Learning Management to Enhance Instructional Media Creation Skills in a Cloud-Based Learning Environment for Undergraduate Students",
+     "venue": "Advances in intelligent systems and computing",
+     "doi": "10.1007/978-3-030-40274-7_29",
+     "cited": 1,
+     "type": "conference-paper",
+     "ieee": false
+    }
+   ]
+  },
+  "scopus": {
+   "ok": false,
+   "url": "https://www.scopus.com/authid/detail.uri?authorId=57216501821",
+   "reason": "ต้องเพิ่ม SCOPUS_API_KEY ใน GitHub Secrets"
+  },
+  "scholar": {
+   "ok": false,
+   "reason": "ยังไม่ได้ใส่ google_scholar ใน content.yml"
+  },
+  "ieee": {
+   "ok": true,
+   "works_count": 3,
+   "citations": 0,
+   "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Kanitta%20Hinon"
+  }
+ }
+}
