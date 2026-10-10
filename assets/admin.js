@@ -125,6 +125,7 @@
 
   async function showLock() {
     key = null; data = null; token = '';
+    if (window.KHEditor) window.KHEditor.reset();
     $('#panel').hidden = true; $('#panel').innerHTML = '';
     $('#lockBtn').hidden = true; $('#syncState').hidden = true;
     $('#lock').hidden = false;
@@ -196,9 +197,22 @@
   var open = { bm: true, notes: true, links: true, settings: false };
   var query = '';
 
+  function tokenUrl() {
+    var owner = repo().split('/')[0];
+    return 'https://github.com/settings/personal-access-tokens/new?name=' + encodeURIComponent('Website Admin') +
+      '&description=' + encodeURIComponent('Edit ' + repo() + ' from admin page') + '&target_name=' + encodeURIComponent(owner) +
+      '&expires_in=none&contents=write';
+  }
+  var api = {
+    gh: function (p, o) { return gh(p, o); }, hasToken: function () { return !!token; }, repo: function () { return repo(); },
+    toast: toast, esc: esc, tokenUrl: tokenUrl, setToken: function () { return setToken(); }
+  };
+
   function openPanel() {
     $('#lock').hidden = true; $('#panel').hidden = false; $('#lockBtn').hidden = false;
     if (token) setSync('ok', 'เชื่อม GitHub แล้ว'); else setSync('local', 'เก็บในเครื่องนี้');
+    $('#panel').innerHTML = '<div id="admHello"></div><div id="editorMount"></div><div id="admMain"></div>';
+    if (window.KHEditor) window.KHEditor.mount($('#editorMount'), api);
     render(); bumpIdle();
   }
 
@@ -226,8 +240,8 @@
     ];
     var warnPin = !data.settings.pin_changed
       ? '<div class="pin-banner">🔐 ครูยังใช้รหัสเริ่มต้นอยู่ — แนะนำให้เปลี่ยนเป็นรหัสที่เดายาก (ไม่ใช่เบอร์โทร/วันเกิด) <button class="btn" type="button" data-act="pin">เปลี่ยนรหัสตอนนี้</button></div>' : '';
-    var html = warnPin + '<div class="adm-hello"><h1>สวัสดีค่ะ ครูกิ๊ก</h1><p class="muted">พื้นที่ส่วนตัวของครู — ข้อมูลในหน้านี้เข้ารหัสด้วยรหัส 8 หลักของครู</p></div>' +
-      section('links', '01', '一', 'ลิงก์ด่วน · QUICK LINKS', null,
+    $('#admHello').innerHTML = warnPin + '<div class="adm-hello"><h1>สวัสดีค่ะ ครูกิ๊ก</h1><p class="muted">พื้นที่ส่วนตัวของครู — แก้ข้อมูลเว็บ เก็บเว็บโปรด และบันทึกส่วนตัว</p></div>';
+    var html = section('links', '02', '二', 'ลิงก์ด่วน · QUICK LINKS', null,
         '<div class="ql-grid">' + links.map(function (l) {
           return '<div class="ql"><span class="ql-ic">' + l[0] + '</span><div><strong>' + esc(l[1]) + '</strong><a href="' + esc(l[2]) + '" target="_blank" rel="noopener">' + esc(l[2]) + '</a></div>' +
             '<button class="icon-btn" type="button" data-copy="' + esc(l[2]) + '" title="คัดลอกลิงก์">⧉</button></div>';
@@ -235,7 +249,7 @@
         '<div class="ql-row"><a class="btn ghost" href="https://github.com/' + esc(repo()) + '/edit/main/content.yml" target="_blank" rel="noopener">✎ แก้ข้อมูลเว็บ (content.yml)</a>' +
         '<a class="btn ghost" href="https://github.com/' + esc(repo()) + '/actions/workflows/metrics.yml" target="_blank" rel="noopener">↻ อัปเดตแดชบอร์ดตอนนี้</a>' +
         '<button class="btn ghost" type="button" data-act="qr">▦ QR Code เว็บไซต์</button></div><div id="qrBox" class="qr-box" hidden></div>') +
-      section('bm', '02', '二', 'เว็บโปรด · MY SYSTEMS', data.bookmarks.length,
+      section('bm', '03', '三', 'เว็บโปรด · MY SYSTEMS', data.bookmarks.length,
         '<div class="bm-tools"><input class="adm-search" id="bmSearch" type="search" placeholder="ค้นหาเว็บโปรด…" value="' + esc(query) + '">' +
         '<button class="btn" type="button" data-act="addBm">+ เพิ่มเว็บโปรด</button></div>' +
         (bms.length ? '<div class="bm-grid">' + bms.map(function (b) {
@@ -244,7 +258,7 @@
             '<button class="bm-btn" type="button" data-edit="' + b.id + '" title="แก้ไข" aria-label="แก้ไข ' + esc(b.title) + '">✎</button>' +
             '<button class="bm-btn" type="button" data-del="' + b.id + '" title="ลบ" aria-label="ลบ ' + esc(b.title) + '">✕</button></div>';
         }).join('') + '</div>' : '<p class="muted empty">' + (query ? 'ไม่พบเว็บที่ค้นหา' : 'ยังไม่มีเว็บโปรด — กด "+ เพิ่มเว็บโปรด"') + '</p>')) +
-      section('notes', '03', '三', 'บันทึกส่วนตัว · NOTES', data.notes.length,
+      section('notes', '04', '四', 'บันทึกส่วนตัว · NOTES', data.notes.length,
         '<div class="bm-tools"><button class="btn" type="button" data-act="addNote">+ เพิ่มบันทึก</button></div>' +
         (data.notes.length ? '<div class="note-grid">' + data.notes.map(function (n) {
           return '<article class="note"><header><strong>' + esc(n.title || 'ไม่มีหัวข้อ') + '</strong>' +
@@ -253,19 +267,19 @@
             '<p>' + esc(n.body).replace(/\n/g, '<br>') + '</p><time>' + esc(new Date(n.updated).toLocaleString('th-TH', { dateStyle: 'medium', timeStyle: 'short' })) + '</time></article>';
         }).join('') + '</div>' : '<p class="muted empty">ยังไม่มีบันทึก</p>') +
         '<p class="adm-warn">⚠ อย่าเก็บรหัสผ่านของระบบอื่นไว้ที่นี่ — ใช้ตัวจัดการรหัสผ่าน (เช่น iCloud Keychain, Google Password Manager) แทน</p>') +
-      section('settings', '04', '四', 'ตั้งค่า · SETTINGS', null,
+      section('settings', '05', '五', 'ตั้งค่า · SETTINGS', null,
         '<div class="set-grid">' +
           '<div class="set"><h3>ซิงก์ข้ามเครื่องผ่าน GitHub</h3><p class="muted">ใส่ Fine-grained token ที่ให้สิทธิ์ <b>Contents: Read and write</b> เฉพาะ repo <code>' + esc(repo()) + '</code> — token เก็บเฉพาะเครื่องนี้และเข้ารหัสไว้</p>' +
             '<p class="set-state">' + (token ? '● เชื่อมแล้ว' : '○ ยังไม่เชื่อม (เก็บข้อมูลเฉพาะเครื่องนี้)') + '</p>' +
             '<div class="ql-row"><button class="btn" type="button" data-act="token">' + (token ? 'เปลี่ยน token' : 'ใส่ token') + '</button>' +
             (token ? '<button class="btn ghost" type="button" data-act="syncNow">↻ ซิงก์ตอนนี้</button><button class="btn ghost" type="button" data-act="untoken">ลบ token จากเครื่องนี้</button>' : '') +
-            '<a class="btn ghost" href="https://github.com/settings/personal-access-tokens/new" target="_blank" rel="noopener">สร้าง token ↗</a></div></div>' +
+            '<a class="btn ghost" href="' + esc(tokenUrl()) + '" target="_blank" rel="noopener">สร้าง token ↗</a></div></div>' +
           '<div class="set"><h3>รหัส 8 หลัก</h3><p class="muted">ล็อกอัตโนมัติเมื่อไม่ใช้งาน 15 นาที</p><div class="ql-row"><button class="btn ghost" type="button" data-act="pin">เปลี่ยนรหัส</button></div></div>' +
           '<div class="set"><h3>สำรองข้อมูล</h3><p class="muted">ไฟล์สำรองถูกเข้ารหัส เปิดได้ด้วยรหัส 8 หลักเท่านั้น</p><div class="ql-row">' +
             '<button class="btn ghost" type="button" data-act="export">⬇ ดาวน์โหลดไฟล์สำรอง</button>' +
             '<label class="btn ghost">⬆ นำเข้าเว็บโปรด (JSON)<input type="file" id="importFile" accept="application/json,.json" hidden></label></div></div>' +
         '</div>');
-    $('#panel').innerHTML = html;
+    $('#admMain').innerHTML = html;
   }
 
   // ---------- edit dialog ----------
@@ -325,7 +339,7 @@
     lsSet(LS_TOKEN, JSON.stringify(await encryptWith(key, token)));
     remoteSha = null;
     var vault = await sealVault(); lsSet(LS_VAULT, JSON.stringify(vault)); await pushRemote(vault);
-    render(); toast('เชื่อม GitHub สำเร็จ');
+    render(); if (window.KHEditor) window.KHEditor.refresh(); toast('เชื่อม GitHub สำเร็จ');
   }
 
   async function changePin() {
@@ -396,7 +410,7 @@
         case 'addBm': return editBookmark(null);
         case 'addNote': return editNote(null);
         case 'token': return setToken();
-        case 'untoken': token = ''; lsDel(LS_TOKEN); render(); setSync('local', 'เก็บในเครื่องนี้'); return toast('ลบ token แล้ว');
+        case 'untoken': token = ''; lsDel(LS_TOKEN); render(); if (window.KHEditor) window.KHEditor.refresh(); setSync('local', 'เก็บในเครื่องนี้'); return toast('ลบ token แล้ว');
         case 'syncNow': return pushRemote(await sealVault());
         case 'pin': return changePin();
         case 'export': {
