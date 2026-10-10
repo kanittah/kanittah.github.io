@@ -5,14 +5,14 @@
 (function () {
   'use strict';
 
-  var ITER = 600000;
+  var ITER = 1200000;   // ยิ่งสูง ยิ่งเดารหัสยาก (ใช้เวลาปลดล็อก ~1 วินาที)
   var VAULT_PATH = 'data/vault.json';
   var LS_VAULT = 'kh_vault', LS_TOKEN = 'kh_gh', LS_FAIL = 'kh_fail';
   var IDLE_MS = 15 * 60 * 1000;
 
   var key = null, salt = null;     // อยู่ในหน่วยความจำเท่านั้น
   var data = null;                 // ข้อมูลที่ถอดรหัสแล้ว
-  var token = '', remoteSha = null;
+  var token = '', remoteSha = null, remoteStatus = 0;
   var mode = 'unlock', firstPin = '';
   var idleTimer = null, syncTimer = null;
 
@@ -79,14 +79,16 @@
     try {
       if (token) {
         var r = await gh('/contents/' + VAULT_PATH + '?t=' + Date.now());
+        remoteStatus = r.status;
         if (r.status === 404) { remoteSha = null; return null; }
         if (!r.ok) throw new Error(r.status);
         var j = await r.json(); remoteSha = j.sha;
         return JSON.parse(atob(j.content.replace(/\n/g, '')));
       }
       var res = await fetch(VAULT_PATH + '?t=' + Date.now(), { cache: 'no-store' });
+      remoteStatus = res.status;
       return res.ok ? await res.json() : null;
-    } catch (e) { return null; }
+    } catch (e) { remoteStatus = 0; return null; }
   }
   async function pushRemote(vault) {
     if (!token) return;
@@ -129,6 +131,14 @@
     $('#pin').value = ''; paintPin(); $('#pinMsg').textContent = '';
     var local = localVault(), remote = await fetchRemote();
     candidate = [local, remote].filter(Boolean).sort(function (a, b) { return (b.updated || '').localeCompare(a.updated || ''); })[0] || null;
+    // ตั้งรหัสใหม่ได้เฉพาะเมื่อยืนยันแล้วว่ายังไม่มีข้อมูลเลยจริง ๆ (กันคนอื่นมาตั้งรหัสแทน)
+    if (!candidate && remoteStatus !== 404) {
+      $('#lockTitle').textContent = 'เชื่อมต่อไม่ได้';
+      $('#lockHint').textContent = 'โหลดข้อมูลไม่สำเร็จ ตรวจอินเทอร์เน็ตแล้วรีเฟรชหน้านี้อีกครั้ง';
+      $('#pin').disabled = true;
+      return;
+    }
+    $('#pin').disabled = false;
     mode = candidate ? 'unlock' : 'setup1';
     $('#lockTitle').textContent = candidate ? 'ใส่รหัส 8 หลัก' : 'ตั้งรหัส 8 หลัก';
     $('#lockHint').textContent = candidate ? 'พื้นที่ส่วนตัวของครูกิ๊ก' : 'ครั้งแรก — ตั้งรหัสตัวเลข 8 หลักสำหรับเข้าหน้านี้ (จำไว้ให้ดี ลืมแล้วกู้ข้อมูลไม่ได้)';
@@ -214,7 +224,9 @@
       ['📄', 'CV ภาษาไทย', base + '?lang=th#cv'],
       ['🎬', 'โหมดนำเสนอ (แนะนำตัวนักศึกษา)', base + '?lang=th#present']
     ];
-    var html = '<div class="adm-hello"><h1>สวัสดีค่ะ ครูกิ๊ก</h1><p class="muted">พื้นที่ส่วนตัวของครู — ข้อมูลในหน้านี้เข้ารหัสด้วยรหัส 8 หลักของครู</p></div>' +
+    var warnPin = !data.settings.pin_changed
+      ? '<div class="pin-banner">🔐 ครูยังใช้รหัสเริ่มต้นอยู่ — แนะนำให้เปลี่ยนเป็นรหัสที่เดายาก (ไม่ใช่เบอร์โทร/วันเกิด) <button class="btn" type="button" data-act="pin">เปลี่ยนรหัสตอนนี้</button></div>' : '';
+    var html = warnPin + '<div class="adm-hello"><h1>สวัสดีค่ะ ครูกิ๊ก</h1><p class="muted">พื้นที่ส่วนตัวของครู — ข้อมูลในหน้านี้เข้ารหัสด้วยรหัส 8 หลักของครู</p></div>' +
       section('links', '01', '一', 'ลิงก์ด่วน · QUICK LINKS', null,
         '<div class="ql-grid">' + links.map(function (l) {
           return '<div class="ql"><span class="ql-ic">' + l[0] + '</span><div><strong>' + esc(l[1]) + '</strong><a href="' + esc(l[2]) + '" target="_blank" rel="noopener">' + esc(l[2]) + '</a></div>' +
@@ -323,10 +335,13 @@
     ]);
     if (!r) return;
     if (r.a !== r.b) { toast('รหัสไม่ตรงกัน'); return; }
+    if (/^(\d)\1{7}$/.test(r.a) || '0123456789'.indexOf(r.a) > -1 || '9876543210'.indexOf(r.a) > -1) { toast('รหัสเดาง่ายเกินไป ลองรหัสอื่น'); return; }
+    data.settings.pin_changed = true;
     salt = crypto.getRandomValues(new Uint8Array(16));
     key = await deriveKey(r.a, salt, ITER);
     if (token) lsSet(LS_TOKEN, JSON.stringify(await encryptWith(key, token)));
-    await save(); toast('เปลี่ยนรหัสแล้ว' + (token ? ' — เครื่องอื่นใช้รหัสใหม่ได้หลังซิงก์' : ''));
+    await save(); render();
+    toast(token ? 'เปลี่ยนรหัสแล้ว — ทุกเครื่องใช้รหัสใหม่' : 'เปลี่ยนรหัสแล้วในเครื่องนี้ — ใส่ GitHub token ในตั้งค่าเพื่อให้รหัสใหม่ใช้ได้ทุกเครื่อง');
   }
 
   // ---------- events ----------
