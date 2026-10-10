@@ -188,7 +188,7 @@
         openPanel();
       }
     } finally {
-      $('#pin').disabled = false; $('#pin').value = ''; paintPin();
+      $('#pin').disabled = false; $('#pin').value = ''; paintPin(); $('#pinOk').disabled = true;
       if (!$('#lock').hidden) $('#pin').focus();
     }
   }
@@ -364,9 +364,16 @@
   function bind() {
     $('#pin').addEventListener('input', function () {
       this.value = this.value.replace(/\D/g, '').slice(0, 8); paintPin();
-      if (this.value.length === 8) onPin(this.value);
+      $('#pinOk').disabled = this.value.length !== 8;
+      if (this.value.length) $('#pinMsg').textContent = '';
     });
-    $('#pinForm').addEventListener('submit', function (e) { e.preventDefault(); });
+    $('#pinForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      var v = $('#pin').value;
+      if (v.length !== 8) { $('#pinMsg').textContent = 'กรุณาใส่รหัสให้ครบ 8 หลัก'; $('#pin').focus(); return; }
+      $('#pinOk').disabled = true;
+      onPin(v);
+    });
     $('#lockBtn').addEventListener('click', showLock);
     ['click', 'keydown', 'scroll', 'touchstart'].forEach(function (ev) { document.addEventListener(ev, bumpIdle, { passive: true }); });
 

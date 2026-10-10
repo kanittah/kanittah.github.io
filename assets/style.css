@@ -763,3 +763,4 @@ body.mode-deck { overflow: hidden; }
 .ed-list, .ed-auto { grid-template-columns: minmax(0, 1fr); }
 .ed-item, .ed-auto li { min-width: 0; }
 .ed-auto li > div { min-width: 0; overflow-wrap: anywhere; }
+.pin-ok { margin-top: 14px; min-width: 160px; justify-content: center; }
