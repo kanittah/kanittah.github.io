@@ -161,7 +161,9 @@ teaching:
 #   (ถ้าชื่อเรื่องหรือ DOI ตรงกับที่ดึงมา ระบบจะรวมเป็นรายการเดียว)
 #
 #   ซ่อนผลงานที่ดึงมาแต่ไม่อยากแสดง: ใส่ DOI หรือชื่อเรื่องใน hide_works
-hide_works: []
+hide_works:
+  # ชื่อภาษาไทยของบทความเดียวกับฉบับภาษาอังกฤษที่มี DOI (Development of instructional package on RLC circuit…)
+  - "การพัฒนาชุดการสอนวงจร RLC โดยใช้โปรแกรมจำลองฟังก์ชัน GUI ของ MATLAB สำหรับนักศึกษาระดับประกาศนียบัตรวิชาชีพ"
 #   - 10.xxxx/xxxxx
 #
 #   type:   journal (บทความวารสาร) | conference (การประชุมวิชาการ)
@@ -270,90 +272,139 @@ publications:
 # โครงการวิจัย / บริการวิชาการ   role: lead (หัวหน้าโครงการ) | co (ผู้ร่วมวิจัย)
 # ---------------------------------------------------------------------
 projects:
-  - year: 2025
+  - year: 2026
     title:
-      en: The Use of Electronic Document Management on Web Application for Teaching Supervision in Educational Institutions
-    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มจพ.", en: "Faculty of Technical Education, KMUTNB" }
-    team: "Sirirak Suksud, Kanitta Hinon"
+      en: "Development of an Electronic Document Management System One-Stop Service for Organizational Vehicle Reservation under Sustainable Management Approach"
+    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ", en: "Faculty of Technical Education, KMUTNB" }
+    team: "วิทวัส จันทะมูลลา, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี"
+    role: co
+  - year: 2026
+    title:
+      en: "Development of a Data Management System through Artificial Intelligence Innovation for Classification and Linkage based on Sustainable Development Goals"
+    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ", en: "Faculty of Technical Education, KMUTNB" }
+    team: "พีรพล ปานไม้, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี"
+    role: co
+  - year: 2026
+    title:
+      en: "Development of a Smart Classroom Management System for Reservation and Energy Efficiency in Line with the National Digital and Environmental Strategy"
+    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ", en: "Faculty of Technical Education, KMUTNB" }
+    team: "กฤตินันท์ เพ็ชรศรี, ผศ.ดร. ขนิษฐา หินอ่อน, วิทวัส จันทะมูลลา"
     role: co
   - year: 2025
     title:
-      en: Electronic Document Management System One-Stop Service for Classroom and Meeting Room Usage with Green Office
-    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มจพ.", en: "Faculty of Technical Education, KMUTNB" }
-    team: "Witthawat Chantamulla, Kanitta Hinon, Kittinan Petsri"
+      en: "The Use of Electronic Document Management on Web Application of Supervision Teaching in Educational Institute"
+    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ", en: "Faculty of Technical Education, KMUTNB" }
+    team: "ศิริรักษ์ สุขสุด, ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: co
+  - year: 2025
+    title:
+      en: "Electronic Document Management System One-Stop Service for The Use of Classrooms and Meeting Rooms with Green Office"
+    funder: { th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ", en: "Faculty of Technical Education, KMUTNB" }
+    team: "วิทวัส จันทะมูลลา, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี"
     role: co
   - year: 2024
     title:
-      en: Development of Occupational Standards and Professional Qualifications in Educational Services, Research, and Language (High Competency Level)
-    funder: { th: สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน), en: Thailand Professional Qualification Institute (TPQI) }
-    team: "Prachyanun Nilsook, Pinantha Chatwattana, Panita Wannapiroon, Kanitta Hinon, Pallop Piriyasurawong"
+      th: "การพัฒนามาตรฐานอาชีพและคุณวุฒิวิชาชีพสาขาวิชาชีพบริการการศึกษา วิจัย และภาษาสาขาการวิจัยและพัฒนา ในระดับสมรรถนะสูง"
+      en: "Development of Occupational Standards and Professional Qualifications in Educational Services, Research, and Language (High Competency Level)"
+    funder: { th: "สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน)", en: "Thailand Professional Qualification Institute (TPQI)" }
+    team: "ศ.ดร. ปรัชญนันท์ นิลสุข, รศ.ดร. พินันทา ฉัตรวัฒนา, ศ.ดร. ปณิตา วรรณพิรุณ, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. พัลลภ พิริยะสุรวงศ์"
     role: co
   - year: 2023
     title:
-      th: การศึกษากระบวนการเล่าเรื่องแบบดิจิทัลของนักศึกษาครูช่างอุตสาหกรรมเพื่อประเมินผลลัพธ์การเรียนรู้ในกิจกรรมการถ่ายทอดผ่านนวัตกรรมสื่อสร้างสรรค์ในยุคเปลี่ยนผ่าน
-      en: A Study of the Digital Storytelling Process for Pre-service Engineering Teachers to Assess Learning Outcomes in the Activity of Creative Media Innovations in the Era of Digital Transformation
-    funder: { th: มจพ., en: KMUTNB }
-    team: "Kanitta Hinon, Lanlalit Seubpradit"
+      th: "การประยุกต์ใช้การนำเสนอข้อมูลเชิงกราฟิกเพื่อการพัฒนาระบบนิเทศการสอนสำหรับนักศึกษาครูช่างอุตสาหกรรม"
+      en: "Application of Graphic-based Information Presentation for Developing a Teaching Supervision System for Industrial Vocational Preservice Teachers"
+    funder: { th: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)", en: "KMUTNB" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: lead
+  - year: 2023
+    title:
+      th: "การศึกษาความเป็นไปได้ในการแปรรูปกากของเสียเพื่อลดต้นทุนการย่อยสลายไฟเบอร์ซีเมนต์ในโรงงานอุตสาหกรรม"
+      en: "Feasibility Study on Waste Sludge Conversion to Reduce Fiber Cement Decomposition Costs in Industrial Plants"
+    funder: { th: "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2566", en: "Pre-Talent Mobility Program 2023" }
+    team: "ผศ.ดร. วิษณุ เลิศจันทรางกูร, รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: co
+  - year: 2023
+    title:
+      th: "การศึกษากระบวนการเก็บข้อมูลเครื่องชั่งน้ำหนักอัตโนมัติด้วยแพลตฟอร์มไอโอที (IoT)"
+      en: "A Study on Automatic Weight Measurement Data Collection Using IoT Platforms"
+    funder: { th: "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2566", en: "Pre-Talent Mobility Program 2023" }
+    team: "รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. ขนิษฐา หินอ่อน, ผศ.ดร. วิษณุ เลิศจันทรางกูร"
+    role: co
+  - year: 2022
+    title:
+      th: "การประเมินวัสดุเพื่อออกแบบภาชนะผสมสารละลาย (สำหรับควบคุมตัวแปรและลดการกัดกร่อนของสาร)"
+      en: "Material Evaluation for Designing a Chemical Solution Mixing Container"
+    funder: { th: "โครงการกิจกรรมส่งเสริมการแลกเปลี่ยนความรู้สู่ภาคธุรกิจ/อุตสาหกรรม ประจำปีงบประมาณ 2565", en: "Industrial Knowledge Exchange Promotion Project 2022" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน, รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. วิษณุ เลิศจันทรางกูร"
+    role: lead
+  - year: 2022
+    title:
+      th: "การประเมินวัสดุเพื่อออกแบบภาชนะผสมสารละลาย Potassium sulfate (สำหรับควบคุมตัวแปรและลดการกัดกร่อนของสาร)"
+      en: "Material Evaluation for Designing a Potassium Sulfate Solution Mixing Container"
+    funder: { th: "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์วิจัยและนวัตกรรม (สป.อว.)", en: "Academic Service Project, MHESI" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: lead
+    kind: service
+  - year: 2022
+    title:
+      th: "การศึกษากระบวนการเล่าเรื่องแบบดิจิทัลเพื่อประเมินผลลัพธ์การเรียนรู้ในกิจกรรมการถ่ายทอดผ่านนวัตกรรมสื่อสร้างสรรค์ในยุคเปลี่ยนผ่าน"
+      en: "A Study of the Digital Storytelling Process for Pre-service Engineering Teachers to Assess Learning Outcomes in the Activity of Creative Media Innovations in the Era of Digital Transformation"
+    funder: { th: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)", en: "KMUTNB" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
     role: lead
     ethics: "NREC No. 0062/2023"
-  - year: 2023
-    title:
-      en: Application of Graphic-based Information Presentation for Developing a Teaching Supervision System for Industrial Vocational Preservice Teachers
-    funder: { th: มจพ., en: KMUTNB }
-    team: "Kanitta Hinon"
-    role: lead
-  - year: 2023
-    title:
-      en: Feasibility Study on Waste Sludge Conversion to Reduce Fiber Cement Decomposition Costs in Industrial Plants
-    funder: { en: Pre-Talent Mobility Program 2023 }
-    team: "Wisanu Lertchantrangkoon, Chakkargrit Pakdeeto, Kanitta Hinon"
-    role: co
-  - year: 2023
-    title:
-      en: A Study on Automatic Weight Measurement Data Collection Using IoT Platforms
-    funder: { en: Pre-Talent Mobility Program 2023 }
-    team: "Chakkargrit Pakdeeto, Kanitta Hinon, Wisanu Lertchantrangkoon"
-    role: co
   - year: 2022
     title:
-      th: ระบบสารสนเทศการนิเทศการสอนฐานสมรรถนะสำหรับนักศึกษาครูช่างอุตสาหกรรม
-      en: Information System of Competency-Based Teaching Supervision for Industrial Teacher Profession Students
-    funder: { th: "ทุนวิจัย คณะครุศาสตร์อุตสาหกรรม มจพ.", en: "Research Grant, Faculty of Technical Education, KMUTNB" }
-    team: "Kanitta Hinon, Prachyanun Nilsook"
+      th: "ระบบสารสนเทศการนิเทศการสอนฐานสมรรถนะสำหรับนักศึกษาครูช่างอุตสาหกรรม"
+      en: "Information System of Competency-Based Teaching Supervision for Industrial Teacher Profession Students"
+    funder: { th: "ทุนสนับสนุนการวิจัยคณะครุศาสตร์อุตสาหกรรม ประจำปี พ.ศ. 2565", en: "Research Grant, Faculty of Technical Education, KMUTNB" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข"
     role: lead
     ethics: "NREC No. 0063/2565"
+  - year: 2021
+    title:
+      th: "การวิเคราะห์ตัวแปรและประเมินวัสดุที่จะใช้ในการผสมสารละลายเพื่อลดการสูญเสียของสาร"
+    funder: { th: "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2565", en: "Pre-Talent Mobility Program 2022" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน, รศ.ดร. จักรกริช ภักดีโต"
+    role: lead
+  - year: 2020
+    title:
+      th: "การพัฒนารูปแบบการจัดการเรียนรู้แบบ4Dด้วยฟรีแพลตฟอร์มเพื่อเสริมทักษะการใช้และการจัดการสารสนเทศของนักศึกษาปริญญาตรี"
+    funder: { th: "ทุนอุดหนุนการวิจัย มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ ประจำปีงบประมาณ พ.ศ. 2564", en: "KMUTNB Research Grant, FY2021" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: lead
+  - year: 2019
+    title:
+      th: "รูปแบบการจัดการเรียนรู้ด้วยเทคนิค C&A เพื่อเสริมทักษะการสร้างสื่อการสอนบนสภาพแวดล้อมแบบคลาวด์สำหรับนักศึกษาปริญญาตรี"
+    funder: { th: "King Mongkut’s University of Technology North Bangkok", en: "KMUTNB" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: lead
+  - year: 2018
+    title:
+      th: "รูปแบบการจัดการเรียนรู้แบบจินตวิศวกรรมด้วยเทคโนโลยีความเป็นจริงเสริมในสภาพแวดล้อมการเรียนรู้แบบคลาวด์เพื่อส่งเสริมทักษะนวัตกรรมของนักศึกษาปริญญาตรี"
+    funder: { th: "King Mongkut’s University of Technology North Bangkok", en: "KMUTNB" }
+    team: "ผศ.ดร. ขนิษฐา หินอ่อน"
+    role: lead
   - year: 2022
     title:
-      th: การใช้เทคโนโลยีดิจิทัลเพื่อแก้ปัญหาภาวะถดถอยการเรียนรู้ของนักเรียนอาชีวศึกษา
-      en: Using Digital Technology for Learning Loss Recovery on Vocational Education
-    funder: { th: มจพ., en: KMUTNB }
-    team: "Prachyanun Nilsook, Jira Jitsupa, Venus Skunhom, Kanitta Hinon, Watcharee Sangboonraung, Srisuda Daungtod, Wilawan Jinwan, Kitiya Promsorn"
+      th: "การใช้เทคโนโลยีดิจิทัลเพื่อแก้ปัญหาภาวะถดถอยการเรียนรู้ของนักเรียนอาชีวศึกษา"
+      en: "Using Digital Technology for Learning Loss Recovery on Vocational Education"
+    funder: { th: "มจพ.", en: "KMUTNB" }
+    team: "ศ.ดร. ปรัชญนันท์ นิลสุข, ผศ.ดร. จิระ จิตสุภา, ผศ.ดร. วีนัส สกุลหอม, ผศ.ดร. ขนิษฐา หินอ่อน, ผศ.ดร. วัชรี แซงบุญเรือง, ผศ.ดร. ศรีสุดา ด้วงโต้ด, อ.ดร. วิลาวัณย์ จินวรรณ, อ. กิติยา พรหมสอน"
     role: co
     ethics: "NREC No. 0052/2565"
-  - year: 2022
-    title:
-      en: Material Evaluation for Designing a Chemical Solution Mixing Container
-    funder: { en: Industrial Knowledge Exchange Promotion Project 2022 }
-    team: "Kanitta Hinon, Chakkargrit Pakdeeto, Wisanu Lertchantrangkoon"
-    role: lead
-  - year: 2022
-    title:
-      en: Material Evaluation for Designing a Potassium Sulfate Solution Mixing Container
-    funder: { th: "โครงการบริการวิชาการ กระทรวง อว.", en: "Academic Service Project, MHESI" }
-    team: "Kanitta Hinon"
-    role: lead
 
 awards:
   - year: 2024
     title: Outstanding Paper Award
     detail:
-      th: "บทความ Design Concept of Data Visualization in Developing a Supervision System for Pre-Service Engineering Teachers — การประชุมวิชาการนานาชาติ ประเทศอินโดนีเซีย"
-      en: "Design Concept of Data Visualization in Developing a Supervision System for Pre-Service Engineering Teachers — International Conference, Indonesia"
+      th: "Design Concept of Data Visualization in Developing a Supervision System for Pre-service Engineering Teachers — การประชุมวิชาการนานาชาติ ประเทศอินโดนีเซีย (ระดับนานาชาติ)"
+      en: "Design Concept of Data Visualization in Developing a Supervision System for Pre-service Engineering Teachers — International Conference, Indonesia"
   - year: 2024
-    title: Best Presentation Award
+    title: "Best Presentation (Certificate of Appreciation)"
     detail:
-      th: "หัวข้อ Use of Digital Learning Tools — การประชุมวิชาการนานาชาติ ประเทศญี่ปุ่น"
-      en: "Use of Digital Learning Tools — International Conference, Japan"
+      th: "The use of Digital Learning Tools by Pre-service Engineering Teacher — การประชุมวิชาการนานาชาติ ประเทศญี่ปุ่น (ระดับนานาชาติ)"
+      en: "The use of Digital Learning Tools by Pre-service Engineering Teacher — International Conference, Japan"
 
 # ข้อความในสไลด์สุดท้ายของโหมดนำเสนอ (แนะนำตัวกับนักศึกษา)
 present:

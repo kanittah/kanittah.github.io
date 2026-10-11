@@ -19,6 +19,9 @@
     as_table: { th: 'ดูเป็นตาราง', en: 'View as table' },
     year: { th: 'ปี', en: 'Year' },
     sources: { th: 'แหล่งข้อมูล', en: 'Data sources' },
+    service: { th: 'บริการวิชาการ', en: 'Academic service' },
+    kmutnb_db: { th: 'ฐานข้อมูลงานวิจัย มจพ.', en: 'KMUTNB Research DB' },
+    as_of: { th: 'ข้อมูล ณ', en: 'as of' },
     output_mix: { th: 'ประเภทผลงาน', en: 'Output mix' },
     top_venues: { th: 'แหล่งตีพิมพ์หลัก', en: 'Top venues' },
     st_live: { th: 'เชื่อมต่ออัตโนมัติ', en: 'Auto-synced' },
@@ -95,6 +98,7 @@
 
   var D = null;
   var M = null; // data/metrics.json (แดชบอร์ด)
+  var K = null; // data/kmutnb.json (ระบบฐานข้อมูลงานวิจัย มจพ.)
   var lang = 'th';
   var pubFilter = 'all';
   var deckIndex = 0;
@@ -177,7 +181,37 @@
       list.push({ year: w.year, type: w.kind || 'journal', title: niceTitle(w.title), authors: w.authors, venue: w.venue,
         doi: w.doi, url: w.doi ? '' : w.url, role: w.role, cited: w.cited, ieee: w.ieee, auto: true });
     });
+    var seen = {};
+    list.forEach(function (p) { seen[normT(p.title)] = 1; });
+    arr(K && K.publications).forEach(function (k) {
+      var key = normT(k.title);
+      if (!k.title || seen[key] || hide.indexOf(key) > -1) return;
+      seen[key] = 1;
+      list.push({ year: k.year, type: k.type, title: niceTitle(k.title), authors: k.authors, src: 'kmutnb', auto: true });
+    });
     pubCache = list;
+    return list;
+  }
+  // โครงการวิจัย: ที่กรอกใน content.yml + ที่มีในระบบ มจพ. แต่ยังไม่ได้กรอก
+  function titleKeys(t) { return t && typeof t === 'object' ? [normT(t.th), normT(t.en)] : [normT(t)]; }
+  function allProjects() {
+    var list = arr(D.projects).slice(), seen = {};
+    list.forEach(function (p) { titleKeys(p.title).forEach(function (k) { if (k) seen[k] = 1; }); });
+    arr(K && K.projects).forEach(function (k) {
+      if (!k.title || seen[normT(k.title)]) return;
+      seen[normT(k.title)] = 1;
+      list.push({ year: k.year, title: /[\u0e00-\u0e7f]/.test(k.title) ? { th: k.title } : { en: k.title }, funder: k.funder,
+        team: k.team, role: k.role, kind: k.kind === 'service' ? 'service' : undefined, src: 'kmutnb' });
+    });
+    return list;
+  }
+  function allAwards() {
+    var list = arr(D.awards).slice();
+    var txt = list.map(function (a) { return titleKeys(a.detail).concat(titleKeys(a.title)).join('|'); }).join(' ');
+    arr(K && K.awards).forEach(function (k) {
+      if (txt.indexOf(normT(k.work).slice(0, 30)) > -1 || txt.indexOf(normT(k.title).slice(0, 20)) > -1) return;
+      list.push({ year: k.year, title: k.title, detail: k.work + (k.place ? ' — ' + k.place : '') });
+    });
     return list;
   }
   function sortedPubs() {
@@ -189,14 +223,14 @@
     if (oa.ok) return [
       { n: oa.works_count, k: 'kpi_works' },
       { n: oa.citations, k: 'kpi_cites' },
-      { n: arr(D.projects).length, k: 'stat_projects' },
-      { n: arr(D.awards).length, k: 'stat_awards' }
+      { n: allProjects().length, k: 'stat_projects' },
+      { n: allAwards().length, k: 'stat_awards' }
     ];
     return [
       { n: pubs.length, k: 'stat_pubs' },
       { n: pubs.filter(function (p) { return /scopus/i.test(p.index || ''); }).length, k: 'stat_scopus' },
-      { n: arr(D.projects).length, k: 'stat_projects' },
-      { n: arr(D.awards).length, k: 'stat_awards' }
+      { n: allProjects().length, k: 'stat_projects' },
+      { n: allAwards().length, k: 'stat_awards' }
     ];
   }
   function toast(msg) {
@@ -327,7 +361,7 @@
   }
 
   function renderProjects() {
-    var ps = arr(D.projects).slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+    var ps = allProjects().slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
     return '<section id="projects" class="sec"><div class="wrap">' + head('projects', 'projects', '06') +
       '<ol class="projects">' + ps.map(function (p) {
         var th = p.title && p.title.th, en = p.title && p.title.en;
@@ -337,6 +371,7 @@
           '<p class="proj-meta">' + esc(t(p.funder)) + '</p>' +
           (p.team ? '<p class="proj-team"><span class="muted">' + esc(L('team')) + ':</span> ' + boldNames(p.team) + '</p>' : '') +
           '<div class="pub-meta">' + badge(p.role === 'lead' ? L('plead') : L('pco'), p.role === 'lead' ? 'b-lead' : 'b-role') +
+          (p.kind === 'service' ? badge(L('service'), 'b-tci') : '') +
           (p.ethics ? badge('✓ ' + L('ethics') + ' · ' + p.ethics, 'b-ethics') : '') + '</div>' +
           '</div></li>';
       }).join('') + '</ol></div></section>';
@@ -344,7 +379,7 @@
 
   function renderAwards() {
     return '<section id="awards" class="sec alt"><div class="wrap">' + head('awards', 'awards', '07') +
-      '<div class="awards">' + arr(D.awards).map(function (a) {
+      '<div class="awards">' + allAwards().map(function (a) {
         return '<article class="award"><div class="award-mark" aria-hidden="true">🏆</div><div><span class="award-year">' + esc(a.year) +
           '</span><h3>' + esc(t(a.title)) + '</h3><p>' + esc(t(a.detail)) + '</p></div></article>';
       }).join('') + '</div></div></section>';
@@ -495,7 +530,7 @@
       { k: 'kpi_works', n: oa.ok ? oa.works_count : pubs.length, s: oa.ok ? 'OPENALEX' : 'SITE', g: '文', c: 'k-cyan' },
       { k: 'kpi_scopus', n: sc.ok ? sc.documents : scopusFromContent, s: sc.ok ? 'SCOPUS API' : 'SITE', g: '◆', c: 'k-pink' },
       { k: 'kpi_ieee', n: ie.ok ? ie.works_count : dash, s: 'DOI 10.1109', g: '⚡', c: 'k-yellow' },
-      { k: 'kpi_projects', n: arr(D.projects).length, s: 'SITE', g: '研', c: 'k-cyan' }
+      { k: 'kpi_projects', n: allProjects().length, s: K ? 'KMUTNB DB' : 'SITE', g: '研', c: 'k-cyan' }
     ];
     var gsHas = gs.ok || (man.citations !== '' && man.citations != null);
     var srcCards = [
@@ -505,6 +540,8 @@
         line: gs.ok ? gs.citations + ' cit · h ' + gs.h_index : (gsHas ? man.citations + ' cit' + (man.h_index ? ' · h ' + man.h_index : '') : '') },
       { name: 'IEEE Xplore', st: ie.ok ? 'live' : 'off', url: ie.url, line: ie.ok ? ie.works_count + ' ' + L('unit_works') : '' },
       { name: 'OpenAlex', st: oa.ok ? 'live' : 'off', url: oa.url, line: oa.ok ? oa.works_count + ' ' + L('unit_works') + ' · ' + oa.citations + ' cit' : '' },
+      { name: L('kmutnb_db'), st: K ? 'manual' : 'off', url: 'https://research.kmutnb.ac.th/researcher/',
+        line: K ? arr(K.projects).length + ' ' + L('kpi_projects').toLowerCase() + ' · ' + arr(K.publications).length + ' ' + L('unit_works') + (K.printed ? ' · ' + L('as_of') + ' ' + K.printed : '') : '' },
       { name: 'ORCID', st: ids.orcid ? 'live' : 'off', url: ids.orcid ? 'https://orcid.org/' + ids.orcid : '', line: ids.orcid || '' }
     ];
     var stLabel = { live: 'st_live', manual: 'st_manual', off: 'st_off' };
@@ -593,7 +630,7 @@
     var groups = [['journal', pubs.filter(function (x) { return x.type === 'journal'; })],
                   ['conference', pubs.filter(function (x) { return x.type !== 'journal'; })]];
     var n = 0;
-    var projects = arr(D.projects).slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
+    var projects = allProjects().slice().sort(function (a, b) { return (b.year || 0) - (a.year || 0); });
     $('#cv').innerHTML =
       '<div class="cv-bar no-print"><a class="btn ghost" href="#top">← ' + esc(L('cv_back')) + '</a>' +
         '<button class="chip" type="button" data-action="lang">' + (lang === 'th' ? 'English' : 'ภาษาไทย') + '</button>' +
@@ -625,7 +662,7 @@
           return '<li>' + esc(t(x.title)) + ' (' + esc(x.year) + '). ' + esc(t(x.funder)) + '. ' +
             '<span class="cv-tag">[' + esc(x.role === 'lead' ? L('plead') : L('pco')) + (x.ethics ? ' · ' + esc(x.ethics) : '') + ']</span></li>';
         }).join('') + '</ol></section>' +
-        (arr(D.awards).length ? '<section><h2>' + esc(L('awards')) + '</h2><table class="cv-table">' + arr(D.awards).map(function (a) {
+        (allAwards().length ? '<section><h2>' + esc(L('awards')) + '</h2><table class="cv-table">' + allAwards().map(function (a) {
           return '<tr><td>' + esc(a.year) + '</td><td><strong>' + esc(t(a.title)) + '</strong> — ' + esc(t(a.detail)) + '</td></tr>';
         }).join('') + '</table></section>' : '') +
         '<section><h2>' + esc(L('teaching')) + '</h2><ul>' + arr(D.teaching && D.teaching.courses).map(function (x) {
@@ -668,7 +705,7 @@
     }).join('') + '</ol>');
     list.push('<h2 class="s-h">' + esc(L('deck_numbers')) + '</h2><div class="s-stats">' + stats().map(function (s) {
       return '<div><b>' + s.n + '</b><span>' + esc(L(s.k)) + '</span></div>';
-    }).join('') + '</div>' + (arr(D.awards).length ? '<ul class="s-awards">' + arr(D.awards).map(function (a) {
+    }).join('') + '</div>' + (allAwards().length ? '<ul class="s-awards">' + allAwards().map(function (a) {
       return '<li>🏆 <b>' + esc(t(a.title)) + '</b> ' + esc(a.year) + ' — ' + esc(t(a.detail)) + '</li>';
     }).join('') + '</ul>' : ''));
     list.push('<div class="s-end"><div><h2 class="s-h">' + esc(L('deck_contact')) + '</h2>' +
@@ -833,11 +870,13 @@
   }
 
   // ---------- start ----------
+  var kmutnbReq = fetch('data/kmutnb.json', { cache: 'no-cache' })
+    .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
   var metricsReq = fetch('data/metrics.json', { cache: 'no-cache' })
     .then(function (r) { return r.ok ? r.json() : null; }).catch(function () { return null; });
   fetch('content.yml', { cache: 'no-cache' })
     .then(function (r) { if (!r.ok) throw new Error('HTTP ' + r.status); return r.text(); })
-    .then(function (txt) { return metricsReq.then(function (m) { M = m; return txt; }); })
+    .then(function (txt) { return Promise.all([metricsReq, kmutnbReq]).then(function (r) { M = r[0]; K = r[1]; return txt; }); })
     .then(function (txt) {
       try { D = jsyaml.load(txt) || {}; }
       catch (err) { showError(t(UI.yaml_error), err.message); throw null; }

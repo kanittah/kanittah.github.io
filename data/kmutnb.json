@@ -1,0 +1,396 @@
+{
+ "source": "ระบบฐานข้อมูลเพื่องานวิจัยและงานบริการวิชาการ มจพ.",
+ "url": "https://research.kmutnb.ac.th/researcher/",
+ "printed": "11 ตุลาคม 2569",
+ "imported": "2026-10-11T01:54:27Z",
+ "summary": {
+  "โครงการวิจัย/บริการวิชาการ": 17,
+  "บทความวารสาร": 27,
+  "บทความประชุมวิชาการ": 10,
+  "นวัตกรรม/สร้างสรรค์": 0,
+  "ทรัพย์สินทางปัญญา": 0,
+  "หนังสือ/ตำรา": 0,
+  "รางวัลนักวิจัย": 2,
+  "ประชาสัมพันธ์ผลงาน": 0
+ },
+ "projects": [
+  {
+   "year": 2026,
+   "title": "Development of an Electronic Document Management System One-Stop Service for Organizational Vehicle Reservation under Sustainable Management Approach",
+   "kind": "research",
+   "funder": "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "team": "วิทวัส จันทะมูลลา, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี",
+   "role": "co"
+  },
+  {
+   "year": 2026,
+   "title": "Development of a Data Management System through Artificial Intelligence Innovation for Classification and Linkage based on Sustainable Development Goals",
+   "kind": "research",
+   "funder": "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "team": "พีรพล ปานไม้, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี",
+   "role": "co"
+  },
+  {
+   "year": 2026,
+   "title": "Development of a Smart Classroom Management System for Reservation and Energy Efficiency in Line with the National Digital and Environmental Strategy",
+   "kind": "research",
+   "funder": "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "team": "กฤตินันท์ เพ็ชรศรี, ผศ.ดร. ขนิษฐา หินอ่อน, วิทวัส จันทะมูลลา",
+   "role": "co"
+  },
+  {
+   "year": 2025,
+   "title": "The Use of Electronic Document Management on Web Application of Supervision Teaching in Educational Institute",
+   "kind": "research",
+   "funder": "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "team": "ศิริรักษ์ สุขสุด, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "co"
+  },
+  {
+   "year": 2025,
+   "title": "Electronic Document Management System One-Stop Service for The Use of Classrooms and Meeting Rooms with Green Office",
+   "kind": "research",
+   "funder": "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "team": "วิทวัส จันทะมูลลา, ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี",
+   "role": "co"
+  },
+  {
+   "year": 2024,
+   "title": "การพัฒนามาตรฐานอาชีพและคุณวุฒิวิชาชีพสาขาวิชาชีพบริการการศึกษา วิจัย และภาษาสาขาการวิจัยและพัฒนา ในระดับสมรรถนะสูง",
+   "kind": "research",
+   "funder": "สถาบันคุณวุฒิวิชาชีพ (องค์การมหาชน)",
+   "team": "ศ.ดร. ปรัชญนันท์ นิลสุข, รศ.ดร. พินันทา ฉัตรวัฒนา, ศ.ดร. ปณิตา วรรณพิรุณ, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. พัลลภ พิริยะสุรวงศ์",
+   "role": "co"
+  },
+  {
+   "year": 2023,
+   "title": "การประยุกต์ใช้การนำเสนอข้อมูลเชิงกราฟิกเพื่อการพัฒนาระบบนิเทศการสอนสำหรับนักศึกษาครูช่างอุตสาหกรรม",
+   "kind": "research",
+   "funder": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  },
+  {
+   "year": 2023,
+   "title": "การศึกษาความเป็นไปได้ในการแปรรูปกากของเสียเพื่อลดต้นทุนการย่อยสลายไฟเบอร์ซีเมนต์ในโรงงานอุตสาหกรรม",
+   "kind": "research",
+   "funder": "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2566",
+   "team": "ผศ.ดร. วิษณุ เลิศจันทรางกูร, รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "co"
+  },
+  {
+   "year": 2023,
+   "title": "การศึกษากระบวนการเก็บข้อมูลเครื่องชั่งน้ำหนักอัตโนมัติด้วยแพลตฟอร์มไอโอที (IoT)",
+   "kind": "research",
+   "funder": "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2566",
+   "team": "รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. ขนิษฐา หินอ่อน, ผศ.ดร. วิษณุ เลิศจันทรางกูร",
+   "role": "co"
+  },
+  {
+   "year": 2022,
+   "title": "การประเมินวัสดุเพื่อออกแบบภาชนะผสมสารละลาย (สำหรับควบคุมตัวแปรและลดการกัดกร่อนของสาร)",
+   "kind": "research",
+   "funder": "โครงการกิจกรรมส่งเสริมการแลกเปลี่ยนความรู้สู่ภาคธุรกิจ/อุตสาหกรรม ประจำปีงบประมาณ 2565",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน, รศ.ดร. จักรกริช ภักดีโต, ผศ.ดร. วิษณุ เลิศจันทรางกูร",
+   "role": "lead"
+  },
+  {
+   "year": 2022,
+   "title": "การประเมินวัสดุเพื่อออกแบบภาชนะผสมสารละลาย Potassium sulfate (สำหรับควบคุมตัวแปรและลดการกัดกร่อนของสาร)",
+   "kind": "service",
+   "funder": "สำนักงานปลัดกระทรวงการอุดมศึกษา วิทยาศาสตร์วิจัยและนวัตกรรม (สป.อว.)",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  },
+  {
+   "year": 2022,
+   "title": "การศึกษากระบวนการเล่าเรื่องแบบดิจิทัลเพื่อประเมินผลลัพธ์การเรียนรู้ในกิจกรรมการถ่ายทอดผ่านนวัตกรรมสื่อสร้างสรรค์ในยุคเปลี่ยนผ่าน",
+   "kind": "research",
+   "funder": "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  },
+  {
+   "year": 2022,
+   "title": "ระบบสารสนเทศการนิเทศการสอนฐานสมรรถนะสำหรับนักศึกษาครูช่างอุตสาหกรรม",
+   "kind": "research",
+   "funder": "ทุนสนับสนุนการวิจัยคณะครุศาสตร์อุตสาหกรรม ประจำปี พ.ศ. 2565",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข",
+   "role": "lead"
+  },
+  {
+   "year": 2021,
+   "title": "การวิเคราะห์ตัวแปรและประเมินวัสดุที่จะใช้ในการผสมสารละลายเพื่อลดการสูญเสียของสาร",
+   "kind": "research",
+   "funder": "โครงการ Pre-Talent Mobility ประจำปีงบประมาณ 2565",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน, รศ.ดร. จักรกริช ภักดีโต",
+   "role": "lead"
+  },
+  {
+   "year": 2020,
+   "title": "การพัฒนารูปแบบการจัดการเรียนรู้แบบ4Dด้วยฟรีแพลตฟอร์มเพื่อเสริมทักษะการใช้และการจัดการสารสนเทศของนักศึกษาปริญญาตรี",
+   "kind": "research",
+   "funder": "ทุนอุดหนุนการวิจัย มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ ประจำปีงบประมาณ พ.ศ. 2564",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  },
+  {
+   "year": 2019,
+   "title": "รูปแบบการจัดการเรียนรู้ด้วยเทคนิค C&A เพื่อเสริมทักษะการสร้างสื่อการสอนบนสภาพแวดล้อมแบบคลาวด์สำหรับนักศึกษาปริญญาตรี",
+   "kind": "research",
+   "funder": "King Mongkut’s University of Technology North Bangkok",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  },
+  {
+   "year": 2018,
+   "title": "รูปแบบการจัดการเรียนรู้แบบจินตวิศวกรรมด้วยเทคโนโลยีความเป็นจริงเสริมในสภาพแวดล้อมการเรียนรู้แบบคลาวด์เพื่อส่งเสริมทักษะนวัตกรรมของนักศึกษาปริญญาตรี",
+   "kind": "research",
+   "funder": "King Mongkut’s University of Technology North Bangkok",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "role": "lead"
+  }
+ ],
+ "publications": [
+  {
+   "year": 2026,
+   "title": "Research-Based Learning Integration with Artificial Intelligence Research Assistants to Enhance Research Competencies",
+   "authors": "Rungfa Pasmala, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2026,
+   "title": "Micro Self-Directed Learning through the Immersive Virtual Environments to Empower Computational and Creative Thinking",
+   "authors": "อ. ศศินันท์ กัณหารินทร์, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2026,
+   "title": "Intelligent Game-Based Situated Learning in Immersive Virtual Environment to Enhance Digital Safety Skills",
+   "authors": "อ. นงลักษณ์ วีระศิริ, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2026,
+   "title": "Implementation of Electronic Document Management on Web Application for Teacher Supervision in Educational Institutions",
+   "authors": "ศิริรักษ์ สุขสุด, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2026,
+   "title": "Leveraging Intelligent Digital Storytelling for Personalized English Language Learning and Digital Storytelling Skills",
+   "authors": "Tawanrut Kaewsai, อ. วรพรรณ แดงพุธทางกูร, ศ.ดร. ปณิตา วรรณพิรุณ, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Intelligent Design Thinking with Generative Artificial Intelligence to Promote Digital Media Production Competencies for Pre-service Teacher",
+   "authors": "อนุศาสน์ ตาเสน, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "INTERACTIVE VIDEO MICRO-DEMONSTRATION LEARNING TO ENHANCE SPORT SKILLS",
+   "authors": "Patipol Sanguansat, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Project-based Learning with Demonstration through the Metaverse to Promote Media Production Skills and Multimedia Innovations",
+   "authors": "ภานุวัฒน์ กองเขน, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Development of a practical training kit for household electrical and lighting circuits to promote problem-solving skills in electrical and electronics work for vocational certificate students",
+   "authors": "Sasikarn Krutgeen, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Artificial intelligence competencies of vocational teachers using for the design of learning activities",
+   "authors": "Raweewarn Rattanakha, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ, N. Wannapiroon, Jira Jitsupa, ศ.ดร. Nipone Sookpreedee",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "The Leaders of Digital Education Transformation",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ผศ.ดร. กฤตยา ทองผาสุข, Phuchit Satitpong, อัธิยาพร แก้วงาม",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "Development of a Challenge based Learning Platform to Enhance Artificial Intelligence Competencies for Vocational Education Students",
+   "authors": "Suthada Muengsan, ผศ.ดร. ขนิษฐา หินอ่อน, ผศ.ดร. กฤตยา ทองผาสุข, อัธิยาพร แก้วงาม",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "HyFlex Learning Ecosystem with Social Emotional Learning",
+   "authors": "รัตนกูล กองผา, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "A Study of the Digital storytelling process for Technical and Vocational Preservice Teachers in the Activity of creative media innovations",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ดร. Lanlalit Seubpradit, Phuchit Satitpong",
+   "type": "journal"
+  },
+  {
+   "year": 2025,
+   "title": "การพัฒนาชุดการสอนกําลังไฟฟ้าและการปรับปรุงเพาเวอร์แฟคเตอร์ด้วย MATLAB GUI สําหรับนักเรียนระดับประกาศนียบัตรวิชาชีพ",
+   "authors": "รัตติกาล สุทะ, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2024,
+   "title": "การพัฒนาชุดการสอนวงจร RLC โดยใช้โปรแกรมจำลองฟังก์ชัน GUI ของ MATLAB สำหรับนักศึกษาระดับประกาศนียบัตรวิชาชีพ",
+   "authors": "พรทิพา ศรีทาบุตร, ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2024,
+   "title": "Hybrid Project-Based Learning Model on Metaverse to Enhance Collaboration",
+   "authors": "พรรษวุฒิ ชีระภากร, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2024,
+   "title": "การเรียนรู้เชิงประสบการณ์ผ่านจักรวาลนฤมิตด้วยการคิดเชิงออกแบบเพื่อเสริมสร้างสมรรถนะนวัตกร",
+   "authors": "อนุศาสน์ ตาเสน, ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "journal"
+  },
+  {
+   "year": 2024,
+   "title": "Digital Technology Landscape for Vocational Education: Learning Loss Recovery",
+   "authors": "Jira Jitsupa, Venus Skunhom, ศ.ดร. ปรัชญนันท์ นิลสุข, ผศ.ดร. ขนิษฐา หินอ่อน, Watcharee Sangboonraung, Srisuda Daungtod, Wilawan Phumee, Kitiya Promsron",
+   "type": "journal"
+  },
+  {
+   "year": 2024,
+   "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข, ผศ.ดร. วิษณุ เลิศจันทรางกูร",
+   "type": "journal"
+  },
+  {
+   "year": 2022,
+   "title": "Guidelines for using instructional materials of Vocational Education in Thailand during COVID-19",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ดร. Lanlalit Seubpradit",
+   "type": "journal"
+  },
+  {
+   "year": 2021,
+   "title": "Techniques for using Instructional Media to enhance the Professional Competence of Vocational Education",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ดร. Lanlalit Seubpradit",
+   "type": "journal"
+  },
+  {
+   "year": 2018,
+   "title": "การพัฒนาระบบการนิเทศการฝึกประสบการณ์วิชาชีพการสอนภาคทฤษฎีทางออนไลน์สำหรับอาจารย์นิเทศก์ครูช่างระดับปริญญาตรีสาขาครุศาสตร์อุตสาหกรรม",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, รศ.ดร.พงศ์ประเสริฐ หกสุวรรณ, รศ.ดร.ทิพย์เกสร บุญอำไพ",
+   "type": "journal"
+  },
+  {
+   "year": 2018,
+   "title": "การประเมินรูปแบบการจัดเว็บไซต์ของระบบการนิเทศการฝึกประสบการณ์วิชาชีพการสอนภาคทฤษฎีทางออนไลน์สำหรับอาจารย์นิเทศก์ครูช่างระดับปริญญาตรีสาขาครุศาสตร์อุตสาหกรรม",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2017,
+   "title": "แนวทางการออกแบบระบบการเรียนการสอนในบริบทห้องเรียนฝึกประสบการณ์วิชาชีพเพื่อสนับสนุนวิถีสร้างการเรียนรู้เพื่อศิษย์ในศตวรรษที่ 21",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2016,
+   "title": "สื่อพหุมิติปฏิสัมพันธ์สำหรับการศึกษาภควันตภาพในบริบทห้องเรียนฝึกประสบการณ์วิชาชีพด้านวิชาทฤษฎีครูช่าง",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "journal"
+  },
+  {
+   "year": 2015,
+   "title": "ปัญหาและแนวทางพัฒนากระบวนการฝึกประสบการณ์วิชาชีพด้านการสอน คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, สุรพันธ์ ตันศรีวงษ์",
+   "type": "journal"
+  },
+  {
+   "year": 2026,
+   "title": "A Study on the Use of Web Applications with Microservices Architecture to Enhance Sustainability in Electronic Document Management Systems within Educational Institutions",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี, วิทวัส จันทะมูลลา",
+   "type": "conference"
+  },
+  {
+   "year": 2020,
+   "title": "Development of Lesson Plans for Practicing Electrical Installation Professional Experience with Competency-Based Training System in Building Electricians",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข, ศ.ดร. ปณิตา วรรณพิรุณ",
+   "type": "conference"
+  },
+  {
+   "year": 2021,
+   "title": "The Development of 4D Model for Learning Management with Free Platform to Encourage the ICT Literacy Skills of Undergraduates",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "conference"
+  },
+  {
+   "year": 2020,
+   "title": "The development of C&A technique for learning management to enhance instructional media creation skills in a cloud-based learning environment for undergraduate students",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "conference"
+  },
+  {
+   "year": 2020,
+   "title": "Augmented Reality Imagineering Model for Learning Management with Cloud Learning Environment to Encourage the Innovative Skills of Undergraduates",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน",
+   "type": "conference"
+  },
+  {
+   "year": 2024,
+   "title": "A Study and Application of Fire Alarm System in Computer and Telecommunication Control Room",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, Jiraphat Promsuraphat",
+   "type": "conference"
+  },
+  {
+   "year": 2025,
+   "title": "Competency-Based Blended Learning with the MIAP Process to Enhance Computer Skills",
+   "authors": "Nutthacha Siengdee, Niramol Prasertphongkun, ศ.ดร. ปรัชญนันท์ นิลสุข, ศ.ดร. ปณิตา วรรณพิรุณ, ผศ.ดร. ขนิษฐา หินอ่อน, Attiyaporn Keawngam",
+   "type": "conference"
+  },
+  {
+   "year": 2024,
+   "title": "Design Concept of Data Visualization in Developing a Supervision System for Pre-Service Engineering Teachers",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, Phuchit Satitpong, กฤตินันท์ เพ็ชรศรี",
+   "type": "conference"
+  },
+  {
+   "year": 2024,
+   "title": "The Use of Digital Learning Tools by Pre-service Engineering Teacher",
+   "authors": "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข, ดร. Lanlalit Seubpradit, Jaruwan Karapakdee",
+   "type": "conference"
+  },
+  {
+   "year": 2026,
+   "title": "The Concept of Using Engineering Design Process via Digital Storytelling to Enhance the Teaching Experience for Pre-service Engineering Teachers",
+   "authors": "Phuchit Satitpong, ผศ.ดร. ขนิษฐา หินอ่อน, Jiraphat Promsuraphat",
+   "type": "conference"
+  }
+ ],
+ "awards": [
+  {
+   "year": 2024,
+   "title": "Outstanding Paper Award",
+   "work": "Design Concept of Data Visualization in Developing a Supervision System for Pre-service Engineering teachers",
+   "place": "Indonesia",
+   "level": "ระดับนานาชาติ",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน, กฤตินันท์ เพ็ชรศรี, Phuchit Satitpong"
+  },
+  {
+   "year": 2024,
+   "title": "Certificate of Appreciation Best Presentation",
+   "work": "The use of Digital Learning Tools by Pre-service Engineering Teacher",
+   "place": "Japan",
+   "level": "ระดับนานาชาติ",
+   "team": "ผศ.ดร. ขนิษฐา หินอ่อน, ศ.ดร. ปรัชญนันท์ นิลสุข, ดร. Lanlalit Seubpradit, Jaruwan Karapakdee"
+  }
+ ]
+}
