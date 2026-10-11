@@ -154,8 +154,54 @@
     var a = (D.site && D.site.updated) || '', b = (M && M.updated) ? M.updated.slice(0, 10) : '';
     return b > a ? b : a;
   }
+  // ---------- แปลชื่อคน / ชื่อเรื่องภาษาไทย เมื่อแสดงเป็นภาษาอังกฤษ ----------
+  var TH_RE = /[\u0e00-\u0e7f]/;
+  var TRC = null;
+  function trMap() {
+    if (TRC && TRC.d === D) return TRC.m;
+    var m = {};
+    arr(D.translations).forEach(function (x) { if (x && x.th && x.en) m[String(x.th).trim()] = String(x.en).trim(); });
+    TRC = { d: D, m: m };
+    return m;
+  }
+  function trText(x) {
+    if (lang !== 'en' || !x || !TH_RE.test(x)) return x;
+    return trMap()[String(x).trim()] || x;
+  }
+  var TITLE_PRE = [['ศ.ดร.', 'Prof. Dr.'], ['รศ.ดร.', 'Assoc. Prof. Dr.'], ['ผศ.ดร.', 'Asst. Prof. Dr.'], ['อ.ดร.', 'Dr.'], ['ดร.', 'Dr.'],
+    ['ศ.', 'Prof.'], ['รศ.', 'Assoc. Prof.'], ['ผศ.', 'Asst. Prof.'], ['อ.', '']];
+  // รายชื่อคั่นด้วย , — keepTitles: แสดงตำแหน่งวิชาการ (ใช้กับคณะผู้วิจัย) / ไม่แสดง (ใช้กับรายชื่อผู้แต่ง)
+  function trNames(x, keepTitles) {
+    if (lang !== 'en' || !x || !TH_RE.test(x)) return x;
+    return String(x).split(',').map(function (part) {
+      var n = part.trim(), pre = '';
+      TITLE_PRE.some(function (tp) { if (n.indexOf(tp[0]) === 0) { pre = tp[1]; n = n.slice(tp[0].length).trim(); return true; } return false; });
+      var en = trMap()[n] || n;
+      return (keepTitles && pre ? pre + ' ' : '') + en;
+    }).join(', ');
+  }
+  function pubTitle(p) {
+    if (lang === 'en' && TH_RE.test(p.title || '')) {
+      var e = trMap()[String(p.title).trim()];
+      if (e) return e + ' (in Thai)';
+    }
+    return p.title;
+  }
+  function projTitle(p) {
+    var ti = p.title;
+    if (ti && typeof ti === 'object') return lang === 'en' ? (ti.en || trText(ti.th) || '') : (ti.th || ti.en || '');
+    return trText(ti);
+  }
+  var TH_MONTHS = ['มกราคม', 'กุมภาพันธ์', 'มีนาคม', 'เมษายน', 'พฤษภาคม', 'มิถุนายน', 'กรกฎาคม', 'สิงหาคม', 'กันยายน', 'ตุลาคม', 'พฤศจิกายน', 'ธันวาคม'];
+  function thaiDate(x) {
+    if (lang !== 'en' || !x) return x;
+    var m = String(x).match(/(\d{1,2})\s+(\S+)\s+(25\d\d)/);
+    var mi = m ? TH_MONTHS.indexOf(m[2]) : -1;
+    return mi < 0 ? x : new Date(+m[3] - 543, mi, +m[1]).toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
   function cite(p) {
-    var s = (p.authors ? p.authors + ' ' : '') + '(' + p.year + '). ' + p.title + '.';
+    var s = (p.authors ? trNames(p.authors) + ' ' : '') + '(' + p.year + '). ' + pubTitle(p) + '.';
     if (p.venue) s += ' ' + p.venue + (p.volume ? ', ' + p.volume : '') + (p.pages ? ', ' + p.pages : '') + '.';
     if (p.doi) s += ' ' + doiUrl(p.doi);
     return s;
@@ -164,7 +210,7 @@
   function normT(x) { return String(x || '').toLowerCase().replace(/[^a-z0-9\u0e00-\u0e7f]/g, '').slice(0, 60); }
   function niceTitle(x) {
     x = String(x || '');
-    return /[A-Z]{4}/.test(x) && x === x.toUpperCase() ? x.charAt(0) + x.slice(1).toLowerCase() : x;
+    return !TH_RE.test(x) && /[A-Z]{4}/.test(x) && x === x.toUpperCase() ? x.charAt(0) + x.slice(1).toLowerCase() : x;
   }
   var pubCache = null;
   function allPubs() {
@@ -324,8 +370,8 @@
     var role = p.role ? L('role_' + p.role) : '';
     return '<li class="pub" data-type="' + esc(p.type || '') + '">' +
       '<span class="pub-year">' + esc(p.year) + '</span><div class="pub-body">' +
-      '<h3 class="pub-title">' + esc(p.title) + '</h3>' +
-      (p.authors ? '<p class="pub-authors">' + boldNames(p.authors) + '</p>' : '') +
+      '<h3 class="pub-title">' + esc(pubTitle(p)) + '</h3>' +
+      (p.authors ? '<p class="pub-authors">' + boldNames(trNames(p.authors)) + '</p>' : '') +
       (p.venue ? '<p class="pub-venue"><em>' + esc(p.venue) + '</em>' + (p.volume ? ', ' + esc(p.volume) : '') + (p.pages ? ', ' + esc(p.pages) : '') + '</p>' : '') +
       '<div class="pub-meta">' + badge(p.index, /scopus/i.test(p.index || '') ? 'b-scopus' : 'b-tci') + badge(role, 'b-role') +
         (p.award ? badge('🏆 ' + p.award, 'b-award') : '') +
@@ -356,7 +402,7 @@
     if (!ls.length) return '';
     return '<div class="ext-links">' + ls.map(function (l) {
       return '<a href="' + esc(l.url) + '" target="_blank" rel="noopener"><strong>' + esc(l.label) + '</strong>' +
-        (l.note ? '<span>' + esc(l.note) + '</span>' : '') + '</a>';
+        (l.note ? '<span>' + esc(t(l.note)) + '</span>' : '') + '</a>';
     }).join('') + '</div>';
   }
 
@@ -365,11 +411,11 @@
     return '<section id="projects" class="sec"><div class="wrap">' + head('projects', 'projects', '06') +
       '<ol class="projects">' + ps.map(function (p) {
         var th = p.title && p.title.th, en = p.title && p.title.en;
-        var main = t(p.title), sub = lang === 'th' && th && en ? en : (lang === 'en' && th && en ? th : '');
+        var main = projTitle(p), sub = lang === 'th' && th && en ? en : '';
         return '<li class="project"><span class="pub-year">' + esc(p.year) + '</span><div>' +
           '<h3>' + esc(main) + '</h3>' + (sub ? '<p class="muted small">' + esc(sub) + '</p>' : '') +
-          '<p class="proj-meta">' + esc(t(p.funder)) + '</p>' +
-          (p.team ? '<p class="proj-team"><span class="muted">' + esc(L('team')) + ':</span> ' + boldNames(p.team) + '</p>' : '') +
+          '<p class="proj-meta">' + esc(trText(t(p.funder))) + '</p>' +
+          (p.team ? '<p class="proj-team"><span class="muted">' + esc(L('team')) + ':</span> ' + boldNames(trNames(p.team, true)) + '</p>' : '') +
           '<div class="pub-meta">' + badge(p.role === 'lead' ? L('plead') : L('pco'), p.role === 'lead' ? 'b-lead' : 'b-role') +
           (p.kind === 'service' ? badge(L('service'), 'b-tci') : '') +
           (p.ethics ? badge('✓ ' + L('ethics') + ' · ' + p.ethics, 'b-ethics') : '') + '</div>' +
@@ -502,7 +548,7 @@
     var man = (D.manual_metrics && D.manual_metrics.google_scholar) || {};
     var ids = D.ids || {};
     var pubs = arr(D.publications);
-    var works = arr(oa.works);
+    var works = arr(oa.works).filter(function (w) { return !w.broken_title; });
     var scopusFromContent = pubs.filter(function (p) { return /scopus/i.test(p.index || ''); }).length;
     var rows = yearRows();
     var hasCites = rows.some(function (r) { return r.citations; });
@@ -541,7 +587,7 @@
       { name: 'IEEE Xplore', st: ie.ok ? 'live' : 'off', url: ie.url, line: ie.ok ? ie.works_count + ' ' + L('unit_works') : '' },
       { name: 'OpenAlex', st: oa.ok ? 'live' : 'off', url: oa.url, line: oa.ok ? oa.works_count + ' ' + L('unit_works') + ' · ' + oa.citations + ' cit' : '' },
       { name: L('kmutnb_db'), st: K ? 'manual' : 'off', url: 'https://research.kmutnb.ac.th/researcher/',
-        line: K ? arr(K.projects).length + ' ' + L('kpi_projects').toLowerCase() + ' · ' + arr(K.publications).length + ' ' + L('unit_works') + (K.printed ? ' · ' + L('as_of') + ' ' + K.printed : '') : '' },
+        line: K ? arr(K.projects).length + ' ' + L('kpi_projects').toLowerCase() + ' · ' + arr(K.publications).length + ' ' + L('unit_works') + (K.printed ? ' · ' + L('as_of') + ' ' + thaiDate(K.printed) : '') : '' },
       { name: 'ORCID', st: ids.orcid ? 'live' : 'off', url: ids.orcid ? 'https://orcid.org/' + ids.orcid : '', line: ids.orcid || '' }
     ];
     var stLabel = { live: 'st_live', manual: 'st_manual', off: 'st_off' };
@@ -653,13 +699,13 @@
           return '<h3>' + esc(L(g[0])) + '</h3><ol class="cv-refs">' + g[1].map(function (x) {
             n++;
             var extra = [x.index, x.role ? L('role_' + x.role) : '', x.award].filter(Boolean).join(' · ');
-            return '<li value="' + n + '">' + boldNames(x.authors || '') + ' (' + esc(x.year) + '). ' + esc(x.title) + '. ' +
+            return '<li value="' + n + '">' + boldNames(trNames(x.authors || '')) + ' (' + esc(x.year) + '). ' + esc(pubTitle(x)) + '. ' +
               (x.venue ? '<em>' + esc(x.venue) + '</em>' + (x.volume ? ', ' + esc(x.volume) : '') + (x.pages ? ', ' + esc(x.pages) : '') + '. ' : '') +
               (x.doi ? esc(doiUrl(x.doi)) : '') + (extra ? ' <span class="cv-tag">[' + esc(extra) + ']</span>' : '') + '</li>';
           }).join('') + '</ol>';
         }).join('') + '</section>' +
         '<section><h2>' + esc(L('projects')) + '</h2><ol class="cv-refs">' + projects.map(function (x) {
-          return '<li>' + esc(t(x.title)) + ' (' + esc(x.year) + '). ' + esc(t(x.funder)) + '. ' +
+          return '<li>' + esc(projTitle(x)) + ' (' + esc(x.year) + '). ' + esc(trText(t(x.funder))) + '. ' +
             '<span class="cv-tag">[' + esc(x.role === 'lead' ? L('plead') : L('pco')) + (x.ethics ? ' · ' + esc(x.ethics) : '') + ']</span></li>';
         }).join('') + '</ol></section>' +
         (allAwards().length ? '<section><h2>' + esc(L('awards')) + '</h2><table class="cv-table">' + allAwards().map(function (a) {
@@ -671,7 +717,7 @@
           return '<li>' + esc(L('materials')) + ': ' + esc(t(m.title)) + '</li>';
         }).join('') + '</ul></section>' +
         (arr(D.links).length ? '<section><h2>' + esc(L('cv_links')) + '</h2><ul>' + arr(D.links).map(function (l) {
-          return '<li>' + esc(l.label) + (l.note ? ' (' + esc(l.note) + ')' : '') + ': ' + esc(l.url) + '</li>';
+          return '<li>' + esc(l.label) + (l.note ? ' (' + esc(t(l.note)) + ')' : '') + ': ' + esc(l.url) + '</li>';
         }).join('') + '</ul></section>' : '') +
         '<footer class="cv-foot">' + esc(L('updated')) + ' ' + esc(latestDate()) + ' · ' + esc(L('cv_online')) + ': ' + esc(siteUrl()) + '</footer>' +
       '</article>';
@@ -700,7 +746,7 @@
         }).join('') + '</ul>' + (m && m.cover ? '<figure class="s-cover"><img src="' + esc(m.cover) + '" alt=""><figcaption>' + esc(t(m.title)) + '</figcaption></figure>' : '') + '</div>');
     }
     if (feat.length) list.push('<h2 class="s-h">' + esc(L('deck_research')) + '</h2><ol class="s-pubs">' + feat.map(function (x) {
-      return '<li><span>' + esc(x.year) + '</span><div><b>' + esc(x.title) + '</b><em>' + esc(x.venue || '') + '</em>' +
+      return '<li><span>' + esc(x.year) + '</span><div><b>' + esc(pubTitle(x)) + '</b><em>' + esc(x.venue || '') + '</em>' +
         '<div class="pub-meta">' + badge(x.index, /scopus/i.test(x.index || '') ? 'b-scopus' : 'b-tci') + badge(x.role ? L('role_' + x.role) : '', 'b-role') + '</div></div></li>';
     }).join('') + '</ol>');
     list.push('<h2 class="s-h">' + esc(L('deck_numbers')) + '</h2><div class="s-stats">' + stats().map(function (s) {

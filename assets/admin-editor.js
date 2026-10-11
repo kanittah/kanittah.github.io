@@ -58,6 +58,10 @@
     { id: 'links', label: 'ลิงก์ฐานข้อมูลนักวิจัย', icon: '🔗', kind: 'list', path: 'links', blank: {},
       sum: function (i) { return [i.label || '', i.url || '']; }, fields: [
       ['label', 'ชื่อ (เช่น Google Scholar)', 'text'], ['note', 'หมายเหตุสั้น ๆ', 'text'], ['url', 'ลิงก์', 'text']] },
+    { id: 'translations', label: 'คำแปลชื่อคน/ชื่อเรื่อง', icon: '🔤', kind: 'list', path: 'translations', newOnTop: true, blank: {},
+      note: 'ใช้แสดงชื่อคนและชื่อเรื่องภาษาไทยเป็นภาษาอังกฤษ เมื่อเปิดเว็บแบบ English — ใส่ข้อความภาษาไทยให้ตรงตัวอักษรกับที่แสดงบนเว็บ (ชื่อคนไม่ต้องใส่ ผศ.ดร.)',
+      sum: function (i) { return ['', (i.th || '') + (i.en ? '  →  ' + i.en : '')]; }, fields: [
+      ['th', 'ภาษาไทย (ตรงตัวอักษร)', 'area'], ['en', 'ภาษาอังกฤษ', 'area']] },
     { id: 'ids', label: 'รหัสนักวิจัย / Scholar', icon: '🆔', kind: 'groups', groups: [
       { path: 'ids', title: 'รหัสในฐานข้อมูล (ใช้ดึงข้อมูลอัตโนมัติ)', fields: [['orcid', 'ORCID', 'text'], ['openalex', 'OpenAlex ID', 'text'],
         ['scopus', 'Scopus Author ID', 'text'], ['google_scholar', 'Google Scholar ID (ตัวอักษรหลัง user= ในลิงก์)', 'text']] },

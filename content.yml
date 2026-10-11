@@ -82,7 +82,7 @@ links:
     note: "0000-0003-0837-0287"
     url: https://orcid.org/0000-0003-0837-0287
   - label: OpenAlex
-    note: "ผลงานและการอ้างอิง"
+    note: { th: "ผลงานและการอ้างอิง", en: "Works & citations" }
     url: https://openalex.org/authors/A5066140152
   # - label: Google Scholar
   #   url: https://scholar.google.com/citations?user=XXXXXXX
@@ -405,6 +405,71 @@ awards:
     detail:
       th: "The use of Digital Learning Tools by Pre-service Engineering Teacher — การประชุมวิชาการนานาชาติ ประเทศญี่ปุ่น (ระดับนานาชาติ)"
       en: "The use of Digital Learning Tools by Pre-service Engineering Teacher — International Conference, Japan"
+
+# ---------------------------------------------------------------------
+# คำแปลภาษาอังกฤษ — ใช้แสดงชื่อคน / ชื่อเรื่องภาษาไทย เมื่อเปิดเว็บเป็นภาษาอังกฤษ
+#   ชื่อที่มี "# ตรวจสะกด" เป็นการถอดเสียงอัตโนมัติ — ควรตรวจให้ตรงกับที่เจ้าตัวใช้
+# ---------------------------------------------------------------------
+translations:
+  - { th: "ขนิษฐา หินอ่อน", en: "Kanitta Hinon" }
+  - { th: "กฤตินันท์ เพ็ชรศรี", en: "Kittinan Petsri" }
+  - { th: "วิทวัส จันทะมูลลา", en: "Wittawat Chantamoolla" }
+  - { th: "ศิริรักษ์ สุขสุด", en: "Sirirak Sooksood" }
+  - { th: "ปรัชญนันท์ นิลสุข", en: "Prachyanun Nilsook" }
+  - { th: "ปณิตา วรรณพิรุณ", en: "Panita Wannapiroon" }
+  - { th: "วิษณุ เลิศจันทรางกูร", en: "Witsanu Loetchantharangkun" }
+  - { th: "จิระ จิตสุภา", en: "Jira Jitsupa" }
+  - { th: "วีนัส สกุลหอม", en: "Venus Skunhom" }
+  - { th: "วัชรี แซงบุญเรือง", en: "Watcharee Sangboonraung" }
+  - { th: "ศรีสุดา ด้วงโต้ด", en: "Srisuda Daungtod" }
+  - { th: "กิติยา พรหมสอน", en: "Kitiya Promsron" }
+  - { th: "ศศินันท์ กัณหารินทร์", en: "Sasinan Kanharin" }
+  - { th: "นงลักษณ์ วีระศิริ", en: "Nongluk Weerasiri" }
+  - { th: "วรพรรณ แดงพุธทางกูร", en: "Wolaphun Dangbuthangkura" }
+  - { th: "อนุศาสน์ ตาเสน", en: "Anusart Tasen" }
+  - { th: "ภานุวัฒน์ กองเขน", en: "Phanuwat Kongkhen" }
+  - { th: "กฤตยา ทองผาสุข", en: "Gritya Tongpasuk" }
+  - { th: "อัธิยาพร แก้วงาม", en: "Attiyaporn Keawngam" }
+  - { th: "พรทิพา ศรีทาบุตร", en: "Porntipa Srithabut" }
+  - { th: "พรรษวุฒิ ชีระภากร", en: "Pasawut Cheerapakorn" }
+  - { th: "พินันทา ฉัตรวัฒนา", en: "Pinanta Chatwattana" }  # จากเว็บเดิม
+  - { th: "พัลลภ พิริยะสุรวงศ์", en: "Pallop Piriyasurawong" }  # จากเว็บเดิม
+  - { th: "จักรกริช ภักดีโต", en: "Chakkargrit Pakdeeto" }  # จากเว็บเดิม
+  - { th: "พีรพล ปานไม้", en: "Peerapon Panmai" }  # ตรวจสะกด
+  - { th: "วิลาวัณย์ จินวรรณ", en: "Wilawan Jinwan" }  # ตรวจสะกด
+  - { th: "รัตนกูล กองผา", en: "Rattanakul Kongpha" }  # ตรวจสะกด
+  - { th: "รัตติกาล สุทะ", en: "Rattikan Sutha" }  # ตรวจสะกด
+  - { th: "พงศ์ประเสริฐ หกสุวรรณ", en: "Pongprasert Hoksuwan" }  # ตรวจสะกด
+  - { th: "ทิพย์เกสร บุญอำไพ", en: "Thipkesorn Boonumpai" }  # ตรวจสะกด
+  - { th: "สุรพันธ์ ตันศรีวงษ์", en: "Suraphan Tansriwong" }  # ตรวจสะกด
+  - th: "การวิเคราะห์ตัวแปรและประเมินวัสดุที่จะใช้ในการผสมสารละลายเพื่อลดการสูญเสียของสาร"
+    en: "Variable Analysis and Material Evaluation for Solution Mixing to Reduce Substance Loss"
+  - th: "การพัฒนารูปแบบการจัดการเรียนรู้แบบ4Dด้วยฟรีแพลตฟอร์มเพื่อเสริมทักษะการใช้และการจัดการสารสนเทศของนักศึกษาปริญญาตรี"
+    en: "Development of a 4D Learning Management Model with Free Platforms to Enhance Information Use and Management Skills of Undergraduate Students"
+  - th: "รูปแบบการจัดการเรียนรู้ด้วยเทคนิค C&A เพื่อเสริมทักษะการสร้างสื่อการสอนบนสภาพแวดล้อมแบบคลาวด์สำหรับนักศึกษาปริญญาตรี"
+    en: "A C&A Technique Learning Management Model to Enhance Instructional Media Creation Skills in a Cloud-Based Environment for Undergraduate Students"
+  - th: "รูปแบบการจัดการเรียนรู้แบบจินตวิศวกรรมด้วยเทคโนโลยีความเป็นจริงเสริมในสภาพแวดล้อมการเรียนรู้แบบคลาวด์เพื่อส่งเสริมทักษะนวัตกรรมของนักศึกษาปริญญาตรี"
+    en: "An Augmented Reality Imagineering Learning Management Model in a Cloud Learning Environment to Promote Innovation Skills of Undergraduate Students"
+  - th: "การพัฒนาชุดการสอนกําลังไฟฟ้าและการปรับปรุงเพาเวอร์แฟคเตอร์ด้วย MATLAB GUI สําหรับนักเรียนระดับประกาศนียบัตรวิชาชีพ"
+    en: "Development of an Instructional Package on Electric Power and Power Factor Correction Using MATLAB GUI for Vocational Certificate Students"
+  - th: "การพัฒนาชุดการสอนวงจร RLC โดยใช้โปรแกรมจำลองฟังก์ชัน GUI ของ MATLAB สำหรับนักศึกษาระดับประกาศนียบัตรวิชาชีพ"
+    en: "Development of an Instructional Package on RLC Circuits Using the MATLAB GUI Function Simulator for Vocational Certificate Students"
+  - th: "การเรียนรู้เชิงประสบการณ์ผ่านจักรวาลนฤมิตด้วยการคิดเชิงออกแบบเพื่อเสริมสร้างสมรรถนะนวัตกร"
+    en: "Experiential Learning through the Metaverse with Design Thinking to Enhance Innovator Competencies"
+  - th: "การพัฒนาระบบการนิเทศการฝึกประสบการณ์วิชาชีพการสอนภาคทฤษฎีทางออนไลน์สำหรับอาจารย์นิเทศก์ครูช่างระดับปริญญาตรีสาขาครุศาสตร์อุตสาหกรรม"
+    en: "Development of an Online Supervision System for Theory-Teaching Professional Experience for Supervisors of Undergraduate Technical Teacher Students in Industrial Education"
+  - th: "การประเมินรูปแบบการจัดเว็บไซต์ของระบบการนิเทศการฝึกประสบการณ์วิชาชีพการสอนภาคทฤษฎีทางออนไลน์สำหรับอาจารย์นิเทศก์ครูช่างระดับปริญญาตรีสาขาครุศาสตร์อุตสาหกรรม"
+    en: "Evaluation of the Website Design of an Online Supervision System for Theory-Teaching Professional Experience for Supervisors of Undergraduate Technical Teacher Students in Industrial Education"
+  - th: "แนวทางการออกแบบระบบการเรียนการสอนในบริบทห้องเรียนฝึกประสบการณ์วิชาชีพเพื่อสนับสนุนวิถีสร้างการเรียนรู้เพื่อศิษย์ในศตวรรษที่ 21"
+    en: "Guidelines for Designing an Instructional System in the Professional Experience Classroom Context to Support Learning for 21st-Century Learners"
+  - th: "สื่อพหุมิติปฏิสัมพันธ์สำหรับการศึกษาภควันตภาพในบริบทห้องเรียนฝึกประสบการณ์วิชาชีพด้านวิชาทฤษฎีครูช่าง"
+    en: "Interactive Multidimensional Media for Ubiquitous Learning in the Professional Experience Classroom Context for Technical Teachers' Theory Courses"
+  - th: "ปัญหาและแนวทางพัฒนากระบวนการฝึกประสบการณ์วิชาชีพด้านการสอน คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ"
+    en: "Problems and Development Guidelines for the Teaching Professional Experience Process, Faculty of Technical Education, King Mongkut's University of Technology North Bangkok"
+  - th: "คณะครุศาสตร์อุตสาหกรรม มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ"
+    en: "Faculty of Technical Education, KMUTNB"
+  - th: "มหาวิทยาลัยเทคโนโลยีพระจอมเกล้าพระนครเหนือ (มจพ.)"
+    en: "KMUTNB"
 
 # ข้อความในสไลด์สุดท้ายของโหมดนำเสนอ (แนะนำตัวกับนักศึกษา)
 present:
