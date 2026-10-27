@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-10T16:43:04Z",
+ "updated": "2026-10-27T01:33:52Z",
  "sources": {
   "openalex": {
    "ok": true,
@@ -352,7 +352,7 @@
     {
      "year": 2024,
      "title": "Design Concept of Data Visualization in Developing a Supervision System for Pre-Service Engineering Teachers",
-     "venue": "International Congress on Advanced Applied Informatics (IIAI-AAI)",
+     "venue": "IIAI International Congress on Advanced Applied Informatics (IIAI-AAI)",
      "doi": "10.1109/iiai-aai-winter65925.2024.00030",
      "url": "https://doi.org/10.1109/iiai-aai-winter65925.2024.00030",
      "cited": 0,
