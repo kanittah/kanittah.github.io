@@ -1,5 +1,5 @@
 {
- "updated": "2026-10-28T01:44:18Z",
+ "updated": "2026-10-29T01:47:25Z",
  "sources": {
   "openalex": {
    "ok": true,
@@ -12,12 +12,12 @@
     {
      "year": 2020,
      "works": 3,
-     "citations": 4
+     "citations": 0
     },
     {
      "year": 2021,
      "works": 2,
-     "citations": 0
+     "citations": 2
     },
     {
      "year": 2022,
@@ -27,17 +27,17 @@
     {
      "year": 2024,
      "works": 8,
-     "citations": 8
+     "citations": 1
     },
     {
      "year": 2025,
      "works": 10,
-     "citations": 1
+     "citations": 6
     },
     {
      "year": 2026,
      "works": 6,
-     "citations": 0
+     "citations": 4
     }
    ],
    "works": [
