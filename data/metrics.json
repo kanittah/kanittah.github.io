@@ -1,13 +1,13 @@
 {
- "updated": "2026-10-29T01:47:25Z",
+ "updated": "2026-11-05T01:57:26Z",
  "sources": {
   "openalex": {
    "ok": true,
    "url": "https://openalex.org/authors/A5066140152",
    "works_count": 30,
-   "citations": 13,
-   "h_index": 2,
-   "i10_index": 0,
+   "citations": 28,
+   "h_index": 3,
+   "i10_index": 1,
    "by_year": [
     {
      "year": 2020,
@@ -27,17 +27,17 @@
     {
      "year": 2024,
      "works": 8,
-     "citations": 1
+     "citations": 2
     },
     {
      "year": 2025,
      "works": 10,
-     "citations": 6
+     "citations": 13
     },
     {
      "year": 2026,
      "works": 6,
-     "citations": 4
+     "citations": 11
     }
    ],
    "works": [
@@ -127,15 +127,43 @@
     },
     {
      "year": 2025,
+     "title": "Artificial intelligence competencies of vocational teachers using for the design of learning activities",
+     "venue": "International Journal of Evaluation and Research in Education (IJERE)",
+     "doi": "10.11591/ijere.v14i4.32334",
+     "url": "https://doi.org/10.11591/ijere.v14i4.32334",
+     "cited": 2,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Rattanakha, R., Hinon, K., Wannapiroon, P., Wannapiroon, N., Jitsupa, J., & Sookpreedee, N.",
+     "role": "co",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2025,
      "title": "DEVELOPMENT OF A PRACTICAL TRAINING KIT FOR HOUSEHOLD ELECTRICAL AND LIGHTING CIRCUITS TO PROMOTE PROBLEM-SOLVING SKILLS IN ELECTRICAL AND ELECTRONICS WORK FOR VOCATIONAL CERTIFICATE STUDENTS",
      "venue": "Journal of Industrial Education",
      "doi": "10.55003/jie.24216",
      "url": "https://doi.org/10.55003/jie.24216",
-     "cited": 1,
+     "cited": 2,
      "type": "article",
      "kind": "journal",
      "authors": "Krutgeen, S., & Hinon, K.",
      "role": "co",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2025,
+     "title": "The Leaders of Digital Education Transformation",
+     "venue": "International Education Studies",
+     "doi": "10.5539/ies.v18n3p10",
+     "url": "https://doi.org/10.5539/ies.v18n3p10",
+     "cited": 1,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Hinon, K., Satitpong, P., Tongpasuk, G., & Kaewngam, A.",
+     "role": "first",
      "ieee": false,
      "broken_title": false
     },
@@ -155,20 +183,6 @@
     },
     {
      "year": 2025,
-     "title": "The Leaders of Digital Education Transformation",
-     "venue": "International Education Studies",
-     "doi": "10.5539/ies.v18n3p10",
-     "url": "https://doi.org/10.5539/ies.v18n3p10",
-     "cited": 0,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Hinon, K., Satitpong, P., Tongpasuk, G., & Kaewngam, A.",
-     "role": "first",
-     "ieee": false,
-     "broken_title": false
-    },
-    {
-     "year": 2025,
      "title": "Competency-Based Blended Learning with the MIAP Process to Enhance Computer Skills",
      "venue": "Lecture notes in educational technology",
      "doi": "10.1007/978-981-96-8931-6_28",
@@ -177,20 +191,6 @@
      "type": "conference-paper",
      "kind": "conference",
      "authors": "Siengdee, N., Prasertphongkun, N., Nilsook, P., Wannapiroon, P., Hinon, K., & Keawngam, A.",
-     "role": "co",
-     "ieee": false,
-     "broken_title": false
-    },
-    {
-     "year": 2025,
-     "title": "Artificial intelligence competencies of vocational teachers using for the design of learning activities",
-     "venue": "International Journal of Evaluation and Research in Education (IJERE)",
-     "doi": "10.11591/ijere.v14i4.32334",
-     "url": "https://doi.org/10.11591/ijere.v14i4.32334",
-     "cited": 0,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Rattanakha, R., Hinon, K., Wannapiroon, P., Wannapiroon, N., Jitsupa, J., & Sookpreedee, N.",
      "role": "co",
      "ieee": false,
      "broken_title": false
@@ -271,7 +271,7 @@
      "venue": "International Education Studies",
      "doi": "10.5539/ies.v17n6p65",
      "url": "https://doi.org/10.5539/ies.v17n6p65",
-     "cited": 5,
+     "cited": 10,
      "type": "article",
      "kind": "journal",
      "authors": "Cheerapakorn, P., Hinon, K., & Wannapiroon, P.",
@@ -285,7 +285,7 @@
      "venue": "Journal of Technical Education and Training",
      "doi": "10.30880/jtet.2024.16.01.005",
      "url": "https://doi.org/10.30880/jtet.2024.16.01.005",
-     "cited": 2,
+     "cited": 4,
      "type": "article",
      "kind": "journal",
      "authors": "Jitsupa, J., Skunhom, V., Nilsook, P., Hinon, K., Sangboonraung, W., Daungtod, S., Phumee, W., Promsron, K., & Commission,Bangkok, O.o.t.B.E.",
@@ -299,7 +299,7 @@
      "venue": "TEM Journal",
      "doi": "10.18421/tem132-17",
      "url": "https://doi.org/10.18421/tem132-17",
-     "cited": 1,
+     "cited": 2,
      "type": "article",
      "kind": "journal",
      "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
@@ -425,7 +425,7 @@
      "venue": "Advances in intelligent systems and computing",
      "doi": "10.1007/978-3-030-40271-6_23",
      "url": "https://doi.org/10.1007/978-3-030-40271-6_23",
-     "cited": 2,
+     "cited": 4,
      "type": "conference-paper",
      "kind": "conference",
      "authors": "Hinon, K., Nilsook, P., & Wannapiroon, P.",
@@ -439,7 +439,7 @@
      "venue": "Advances in intelligent systems and computing",
      "doi": "10.1007/978-3-030-40271-6_33",
      "url": "https://doi.org/10.1007/978-3-030-40271-6_33",
-     "cited": 1,
+     "cited": 2,
      "type": "conference-paper",
      "kind": "conference",
      "authors": "Hinon, K.",
