@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-05T01:57:26Z",
+ "updated": "2026-11-08T01:52:34Z",
  "sources": {
   "openalex": {
    "ok": true,
    "url": "https://openalex.org/authors/A5066140152",
    "works_count": 30,
-   "citations": 28,
-   "h_index": 3,
+   "citations": 34,
+   "h_index": 4,
    "i10_index": 1,
    "by_year": [
     {
@@ -22,7 +22,7 @@
     {
      "year": 2022,
      "works": 1,
-     "citations": 0
+     "citations": 2
     },
     {
      "year": 2024,
@@ -32,12 +32,12 @@
     {
      "year": 2025,
      "works": 10,
-     "citations": 13
+     "citations": 15
     },
     {
      "year": 2026,
      "works": 6,
-     "citations": 11
+     "citations": 13
     }
    ],
    "works": [
@@ -285,7 +285,7 @@
      "venue": "Journal of Technical Education and Training",
      "doi": "10.30880/jtet.2024.16.01.005",
      "url": "https://doi.org/10.30880/jtet.2024.16.01.005",
-     "cited": 4,
+     "cited": 5,
      "type": "article",
      "kind": "journal",
      "authors": "Jitsupa, J., Skunhom, V., Nilsook, P., Hinon, K., Sangboonraung, W., Daungtod, S., Phumee, W., Promsron, K., & Commission,Bangkok, O.o.t.B.E.",
@@ -299,7 +299,7 @@
      "venue": "TEM Journal",
      "doi": "10.18421/tem132-17",
      "url": "https://doi.org/10.18421/tem132-17",
-     "cited": 2,
+     "cited": 5,
      "type": "article",
      "kind": "journal",
      "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
@@ -425,7 +425,7 @@
      "venue": "Advances in intelligent systems and computing",
      "doi": "10.1007/978-3-030-40271-6_23",
      "url": "https://doi.org/10.1007/978-3-030-40271-6_23",
-     "cited": 4,
+     "cited": 6,
      "type": "conference-paper",
      "kind": "conference",
      "authors": "Hinon, K., Nilsook, P., & Wannapiroon, P.",
