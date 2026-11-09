@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-08T01:52:34Z",
+ "updated": "2026-11-09T01:57:35Z",
  "sources": {
   "openalex": {
    "ok": true,
@@ -253,7 +253,7 @@
     },
     {
      "year": 2025,
-     "title": "การคดเชงออกแบบอยางชาญฉลาดดวยปญญาประดษฐรงสรรค เพอสงเสรมสมรรถนะการผลตสอดจทลสำหรบนกศกษาวชาชพคร",
+     "title": "การคิดเชิงออกแบบอย่างชาญฉลาดด้วยปัญญาประดิษฐ์รังสรรค์ เพื่อส่งเสริมสมรรถนะการผลิตสื่อดิจิทัลสำหรับนักศึกษาวิชาชีพครู",
      "venue": "Dhammathas Academic Journal",
      "doi": "",
      "url": "https://so06.tci-thaijo.org/index.php/dhammathas/article/view/289304",
@@ -263,7 +263,7 @@
      "authors": "Tasen, A., Hinon, K., & Wannapiroon, P.",
      "role": "co",
      "ieee": false,
-     "broken_title": true
+     "broken_title": false
     },
     {
      "year": 2024,
@@ -365,7 +365,7 @@
     },
     {
      "year": 2024,
-     "title": "การเรยนรเชงประสบการณผานจกรวาลนฤมตดวยการคดเชงออกแบบ เพอเสรมสรางสมรรถนะนวตกร",
+     "title": "การเรียนรู้เชิงประสบการณ์ผ่านจักรวาลนฤมิตด้วยการคิดเชิงออกแบบ เพื่อเสริมสร้างสมรรถนะนวัตกร",
      "venue": "Journal of Roi Kaensarn Academi",
      "doi": "",
      "url": "https://so02.tci-thaijo.org/index.php/JRKSA/article/view/272894",
@@ -375,7 +375,7 @@
      "authors": "Tasen, A., Wannapiroon, P., Hinon, K., Suwanich, C., & Sansern, P.",
      "role": "co",
      "ieee": false,
-     "broken_title": true
+     "broken_title": false
     },
     {
      "year": 2022,
