@@ -1,13 +1,13 @@
 {
- "updated": "2026-11-09T01:57:35Z",
+ "updated": "2026-11-11T07:27:16Z",
  "sources": {
   "openalex": {
    "ok": true,
    "url": "https://openalex.org/authors/A5066140152",
    "works_count": 30,
-   "citations": 34,
+   "citations": 32,
    "h_index": 4,
-   "i10_index": 1,
+   "i10_index": 0,
    "by_year": [
     {
      "year": 2020,
@@ -32,7 +32,7 @@
     {
      "year": 2025,
      "works": 10,
-     "citations": 15
+     "citations": 13
     },
     {
      "year": 2026,
@@ -271,7 +271,7 @@
      "venue": "International Education Studies",
      "doi": "10.5539/ies.v17n6p65",
      "url": "https://doi.org/10.5539/ies.v17n6p65",
-     "cited": 10,
+     "cited": 8,
      "type": "article",
      "kind": "journal",
      "authors": "Cheerapakorn, P., Hinon, K., & Wannapiroon, P.",
