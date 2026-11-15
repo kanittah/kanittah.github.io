@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-11T07:27:16Z",
+ "updated": "2026-11-15T07:27:19Z",
  "sources": {
   "openalex": {
    "ok": true,
    "url": "https://openalex.org/authors/A5066140152",
    "works_count": 30,
-   "citations": 32,
+   "citations": 33,
    "h_index": 4,
    "i10_index": 0,
    "by_year": [
@@ -37,7 +37,7 @@
     {
      "year": 2026,
      "works": 6,
-     "citations": 13
+     "citations": 14
     }
    ],
    "works": [
@@ -281,6 +281,20 @@
     },
     {
      "year": 2024,
+     "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
+     "venue": "TEM Journal",
+     "doi": "10.18421/tem132-17",
+     "url": "https://doi.org/10.18421/tem132-17",
+     "cited": 6,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
+     "role": "first",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2024,
      "title": "Digital Technology Landscape for Vocational Education: Learning Loss Recovery",
      "venue": "Journal of Technical Education and Training",
      "doi": "10.30880/jtet.2024.16.01.005",
@@ -290,20 +304,6 @@
      "kind": "journal",
      "authors": "Jitsupa, J., Skunhom, V., Nilsook, P., Hinon, K., Sangboonraung, W., Daungtod, S., Phumee, W., Promsron, K., & Commission,Bangkok, O.o.t.B.E.",
      "role": "co",
-     "ieee": false,
-     "broken_title": false
-    },
-    {
-     "year": 2024,
-     "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
-     "venue": "TEM Journal",
-     "doi": "10.18421/tem132-17",
-     "url": "https://doi.org/10.18421/tem132-17",
-     "cited": 5,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
-     "role": "first",
      "ieee": false,
      "broken_title": false
     },
