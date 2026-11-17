@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-15T07:27:19Z",
+ "updated": "2026-11-17T08:45:03Z",
  "sources": {
   "openalex": {
    "ok": true,
    "url": "https://openalex.org/authors/A5066140152",
    "works_count": 30,
-   "citations": 33,
-   "h_index": 4,
+   "citations": 49,
+   "h_index": 5,
    "i10_index": 0,
    "by_year": [
     {
@@ -25,19 +25,24 @@
      "citations": 2
     },
     {
+     "year": 2023,
+     "works": 0,
+     "citations": 2
+    },
+    {
      "year": 2024,
      "works": 8,
-     "citations": 2
+     "citations": 6
     },
     {
      "year": 2025,
      "works": 10,
-     "citations": 13
+     "citations": 18
     },
     {
      "year": 2026,
      "works": 6,
-     "citations": 14
+     "citations": 19
     }
    ],
    "works": [
@@ -131,11 +136,25 @@
      "venue": "International Journal of Evaluation and Research in Education (IJERE)",
      "doi": "10.11591/ijere.v14i4.32334",
      "url": "https://doi.org/10.11591/ijere.v14i4.32334",
-     "cited": 2,
+     "cited": 3,
      "type": "article",
      "kind": "journal",
      "authors": "Rattanakha, R., Hinon, K., Wannapiroon, P., Wannapiroon, N., Jitsupa, J., & Sookpreedee, N.",
      "role": "co",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2025,
+     "title": "The Leaders of Digital Education Transformation",
+     "venue": "International Education Studies",
+     "doi": "10.5539/ies.v18n3p10",
+     "url": "https://doi.org/10.5539/ies.v18n3p10",
+     "cited": 3,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Hinon, K., Satitpong, P., Tongpasuk, G., & Kaewngam, A.",
+     "role": "first",
      "ieee": false,
      "broken_title": false
     },
@@ -155,25 +174,11 @@
     },
     {
      "year": 2025,
-     "title": "The Leaders of Digital Education Transformation",
-     "venue": "International Education Studies",
-     "doi": "10.5539/ies.v18n3p10",
-     "url": "https://doi.org/10.5539/ies.v18n3p10",
-     "cited": 1,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Hinon, K., Satitpong, P., Tongpasuk, G., & Kaewngam, A.",
-     "role": "first",
-     "ieee": false,
-     "broken_title": false
-    },
-    {
-     "year": 2025,
      "title": "A Study of the Digital storytelling process for Technical and Vocational Preservice Teachers in the Activity of creative media innovations",
      "venue": "Journal of Technical and Engineering Education",
      "doi": "10.14416/j.ftee.2025.04.03",
      "url": "https://doi.org/10.14416/j.ftee.2025.04.03",
-     "cited": 0,
+     "cited": 1,
      "type": "article",
      "kind": "journal",
      "authors": "Hinon, K., Seubpradit, L., & Satitpong, P.",
@@ -267,6 +272,20 @@
     },
     {
      "year": 2024,
+     "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
+     "venue": "TEM Journal",
+     "doi": "10.18421/tem132-17",
+     "url": "https://doi.org/10.18421/tem132-17",
+     "cited": 8,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
+     "role": "first",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2024,
      "title": "Hybrid Project-Based Learning Model on Metaverse to Enhance Collaboration",
      "venue": "International Education Studies",
      "doi": "10.5539/ies.v17n6p65",
@@ -281,28 +300,28 @@
     },
     {
      "year": 2024,
-     "title": "Competency-Based Online Teaching Supervision Process for Technical and Vocational Preservice Teachers",
-     "venue": "TEM Journal",
-     "doi": "10.18421/tem132-17",
-     "url": "https://doi.org/10.18421/tem132-17",
+     "title": "Digital Technology Landscape for Vocational Education: Learning Loss Recovery",
+     "venue": "Journal of Technical Education and Training",
+     "doi": "10.30880/jtet.2024.16.01.005",
+     "url": "https://doi.org/10.30880/jtet.2024.16.01.005",
      "cited": 6,
      "type": "article",
      "kind": "journal",
-     "authors": "Hinon, K., Nilsook, P., & Loetchantharangkun, W.",
-     "role": "first",
+     "authors": "Jitsupa, J., Skunhom, V., Nilsook, P., Hinon, K., Sangboonraung, W., Daungtod, S., Phumee, W., Promsron, K., & Commission,Bangkok, O.o.t.B.E.",
+     "role": "co",
      "ieee": false,
      "broken_title": false
     },
     {
      "year": 2024,
-     "title": "Digital Technology Landscape for Vocational Education: Learning Loss Recovery",
-     "venue": "Journal of Technical Education and Training",
-     "doi": "10.30880/jtet.2024.16.01.005",
-     "url": "https://doi.org/10.30880/jtet.2024.16.01.005",
-     "cited": 5,
+     "title": "การเรียนรู้เชิงประสบการณ์ผ่านจักรวาลนฤมิตด้วยการคิดเชิงออกแบบ เพื่อเสริมสร้างสมรรถนะนวัตกร",
+     "venue": "Journal of Roi Kaensarn Academi",
+     "doi": "",
+     "url": "https://so02.tci-thaijo.org/index.php/JRKSA/article/view/272894",
+     "cited": 1,
      "type": "article",
      "kind": "journal",
-     "authors": "Jitsupa, J., Skunhom, V., Nilsook, P., Hinon, K., Sangboonraung, W., Daungtod, S., Phumee, W., Promsron, K., & Commission,Bangkok, O.o.t.B.E.",
+     "authors": "Tasen, A., Wannapiroon, P., Hinon, K., Suwanich, C., & Sansern, P.",
      "role": "co",
      "ieee": false,
      "broken_title": false
@@ -364,26 +383,26 @@
      "broken_title": false
     },
     {
-     "year": 2024,
-     "title": "การเรียนรู้เชิงประสบการณ์ผ่านจักรวาลนฤมิตด้วยการคิดเชิงออกแบบ เพื่อเสริมสร้างสมรรถนะนวัตกร",
-     "venue": "Journal of Roi Kaensarn Academi",
-     "doi": "",
-     "url": "https://so02.tci-thaijo.org/index.php/JRKSA/article/view/272894",
-     "cited": 0,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Tasen, A., Wannapiroon, P., Hinon, K., Suwanich, C., & Sansern, P.",
-     "role": "co",
-     "ieee": false,
-     "broken_title": false
-    },
-    {
      "year": 2022,
      "title": "Guidelines for Using Instructional Materials of Vocational Education in Thailand during COVID-19",
      "venue": "International Journal of Educational Communications and Technology",
      "doi": "",
      "url": "https://ph01.tci-thaijo.org/index.php/IJECT/article/view/250319",
-     "cited": 0,
+     "cited": 6,
+     "type": "article",
+     "kind": "journal",
+     "authors": "Hinon, K., & Seubpradit, L.",
+     "role": "first",
+     "ieee": false,
+     "broken_title": false
+    },
+    {
+     "year": 2021,
+     "title": "Techniques for using instructional media to enhance the professional competence of vocational education",
+     "venue": "International Journal of Educational Communications and Technology",
+     "doi": "",
+     "url": "https://ph01.tci-thaijo.org/index.php/IJECT/article/view/247762",
+     "cited": 1,
      "type": "article",
      "kind": "journal",
      "authors": "Hinon, K., & Seubpradit, L.",
@@ -397,26 +416,12 @@
      "venue": "Research, Invention, and Innovation Congress: Innovative Electricals and Electronics (RI2C)",
      "doi": "10.1109/ri2c51727.2021.9559775",
      "url": "https://doi.org/10.1109/ri2c51727.2021.9559775",
-     "cited": 0,
+     "cited": 1,
      "type": "conference-paper",
      "kind": "conference",
      "authors": "Hinon, K.",
      "role": "first",
      "ieee": true,
-     "broken_title": false
-    },
-    {
-     "year": 2021,
-     "title": "Techniques for using instructional media to enhance the professional competence of vocational education",
-     "venue": "International Journal of Educational Communications and Technology",
-     "doi": "",
-     "url": "https://ph01.tci-thaijo.org/index.php/IJECT/article/view/247762",
-     "cited": 0,
-     "type": "article",
-     "kind": "journal",
-     "authors": "Hinon, K., & Seubpradit, L.",
-     "role": "first",
-     "ieee": false,
      "broken_title": false
     },
     {
@@ -475,7 +480,7 @@
   "ieee": {
    "ok": true,
    "works_count": 3,
-   "citations": 0,
+   "citations": 1,
    "url": "https://ieeexplore.ieee.org/search/searchresult.jsp?queryText=Kanitta%20Hinon"
   }
  }
