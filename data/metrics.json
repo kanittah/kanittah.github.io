@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-17T08:45:03Z",
+ "updated": "2026-11-20T07:58:53Z",
  "sources": {
   "openalex": {
    "ok": true,
@@ -140,7 +140,7 @@
      "type": "article",
      "kind": "journal",
      "authors": "Rattanakha, R., Hinon, K., Wannapiroon, P., Wannapiroon, N., Jitsupa, J., & Sookpreedee, N.",
-     "role": "co",
+     "role": "corresponding",
      "ieee": false,
      "broken_title": false
     },
@@ -252,7 +252,7 @@
      "type": "article",
      "kind": "journal",
      "authors": "Mueangsan, S., Hinon, K., Tongpasuk, G., & Keawngam, A.",
-     "role": "co",
+     "role": "corresponding",
      "ieee": false,
      "broken_title": false
     },
